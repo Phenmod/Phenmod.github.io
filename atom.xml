@@ -4,7 +4,7 @@
   <title><![CDATA[Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2015-11-17T20:19:49+08:00</updated>
+  <updated>2015-11-17T20:21:48+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[#使用git-flow]]></title>
+    <title type="html"><![CDATA[使用git-flow]]></title>
     <link href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/"/>
     <updated>2015-11-17T20:17:50+08:00</updated>
     <id>http://phenmod.github.io/blog/2015/11/17/use-git-flow</id>
