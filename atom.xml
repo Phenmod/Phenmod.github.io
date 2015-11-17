@@ -4,7 +4,7 @@
   <title><![CDATA[Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2015-11-17T19:51:59+08:00</updated>
+  <updated>2015-11-17T20:02:08+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -14,13 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[To iOS Fresh Man]]></title>
+    <title type="html"><![CDATA[iOS新人入门文档]]></title>
     <link href="http://phenmod.github.io/blog/2015/11/17/to-ios-fresh-man/"/>
     <updated>2015-11-17T19:35:21+08:00</updated>
     <id>http://phenmod.github.io/blog/2015/11/17/to-ios-fresh-man</id>
-    <content type="html"><![CDATA[<h1>iOS新人入门文档</h1>
-
-<h2>软件推荐</h2>
+    <content type="html"><![CDATA[<h2>软件推荐</h2>
 
 <p>参见：Mac下推荐的软件.md</p>
 
