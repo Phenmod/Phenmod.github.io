@@ -4,7 +4,7 @@
   <title><![CDATA[Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2015-11-17T20:31:59+08:00</updated>
+  <updated>2015-11-17T20:33:41+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -29,11 +29,17 @@
 
 <p>关于空行：
 配置文件里我们现在允许最多连续两行空行，正在考虑只允许一行。
-确实有分段视觉需求的，使用pragma mark进行分割，如下：
-    // =================================================================================================
-    #pragma mark - &lt;#代码分块注释#>
-    // =================================================================================================
-用它定义个code snippet，来个快捷键(我的是pm)，省心啊。</p>
+确实有分段视觉需求的，使用pragma mark进行分割，如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// =================================================================================================
+</span><span class='line'>#pragma mark - &lt;#代码分块注释#&gt;
+</span><span class='line'>// =================================================================================================</span></code></pre></td></tr></table></div></figure>
+
+
+<p>用它定义个code snippet，来个快捷键(我的是pm)，省心啊。</p>
 
 <p>关于每行字符限制：
 如果你把上面的pragma段拷贝到xcode，会发现上面那一串等号会终止在第100列。没错，我们现在每行字符数限制就是100。
