@@ -90,26 +90,23 @@
   <div class="entry-content"><p>传说中，Mac电脑是程序员专用的“飞机中的战斗机”，baidu一下“mac软件推荐”，你会得到很多优秀的工具。下面是我常用的几款，具体安装及使用方式不细说。</p>
 
 <ul>
-<li><p>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</p></li>
+<li>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</li>
 <li><p>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令</p>
 
 <pre><code>  curl -L http://install.ohmyz.sh | sh
 </code></pre>
 
 <p>  具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></p></li>
-<li><p>SourceTree ：git的图形化操作工具。</p></li>
-<li><p>brew ：Mac下安装常用软件的利器。</p>
-
-<pre><code>  brew install &lt;package_name&gt;     #安装一个包
-  brew update                     #更新 Homebrew 在服务器端上的包目录
-  brew outdated                   #查看你的包是否需要更新
-  brew upgrade &lt;package_name&gt;     #更新包
-  brew cleanup                    #Homebrew 将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行
-  brew list --versions            #查看你安装过的包列表（包括版本号）
-  brew search &lt;package_name&gt;      #搜索
-</code></pre>
-
-<p> <a href="https://github.com/caskroom/homebrew-cask">brew cask</a> : 优雅、简单、快速的安装和管理 OS X 图形界面程序。<a href="http://caskroom.io/">caskroom.io</a>。 brew cask装的软件会放到 <code>/opt/homebrew-cask/Caskroom</code> 下面，然后连接到 <code>~/Applications</code>。 跟系统默认安装位置 <code>/Applications</code>不一样。</p>
+<li>SourceTree ：git的图形化操作工具。</li>
+<li><p>brew ：Mac下安装常用软件的利器。
+      brew install <package_name>     #安装一个包
+      brew update                     #更新 Homebrew 在服务器端上的包目录
+      brew outdated                   #查看你的包是否需要更新
+      brew upgrade <package_name>     #更新包
+      brew cleanup                    #Homebrew 将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行
+      brew list &ndash;versions            #查看你安装过的包列表（包括版本号）
+      brew search <package_name>      #搜索</p></li>
+<li><p><a href="https://github.com/caskroom/homebrew-cask">brew cask</a> : 优雅、简单、快速的安装和管理 OS X 图形界面程序。<a href="http://caskroom.io/">caskroom.io</a>。 brew cask装的软件会放到 <code>/opt/homebrew-cask/Caskroom</code> 下面，然后连接到 <code>~/Applications</code>。 跟系统默认安装位置 <code>/Applications</code>不一样。</p>
 
 <pre><code>  brew tap caskroom/cask          #添加 Github 上的 caskroom/cask 库
   brew install brew-cask          #安装 brew-cask
@@ -138,7 +135,7 @@
 </code></pre>
 
 <p>  此外，你还可以通过 brew cask 安装 <a href="https://github.com/jimbojsb/launchrocket">launchrocket</a>，来管理通过 brew 安装的 service</p></li>
-<li><p>Alfred ：自定义各种快捷操作，神器。</p></li>
+<li>Alfred ：自定义各种快捷操作，神器。</li>
 <li>Moom ：快速设置窗口的位置及大小，全键盘流的福音。</li>
 <li>Parallel Desktop ：想安装个虚拟机就用它吧，无缝连接系统，牛叉无比。</li>
 <li>RescueTime ：关注你每天时间的使用，提高工作效率。</li>
@@ -153,7 +150,7 @@
 </ul>
 
 
-<p>另外的几个相关推荐帖子：</p>
+<h2>另外的几个相关推荐帖子：</h2>
 
 <ul>
 <li><a href="http://www.cocoachina.com/mac/20141112/10198.html">Mac 开发配置手册</a> 本文翻译自<a href="https://github.com/sb2nov/mac-setup">mac-setup</a>，原文不断更新，且有很多其他内容。</li>
