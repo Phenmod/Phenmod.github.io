@@ -4,7 +4,7 @@
   <title><![CDATA[Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2015-11-17T20:33:41+08:00</updated>
+  <updated>2015-11-17T20:35:21+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -41,9 +41,11 @@
 
 <p>用它定义个code snippet，来个快捷键(我的是pm)，省心啊。</p>
 
-<p>关于每行字符限制：
-如果你把上面的pragma段拷贝到xcode，会发现上面那一串等号会终止在第100列。没错，我们现在每行字符数限制就是100。
-其实我很想定义到120，但是在某些同学的macbook air的小屏幕上不太够显示。</p>
+<p>关于每行字符限制：</p>
+
+<p>如果你把上面的pragma段拷贝到xcode，会发现上面那一串等号会终止在第100列。没错，我们现在每行字符数限制就是100。</p>
+
+<p>其实我很想定义到120，但是在某些同学的macbook air的小屏幕上不太够显示。</p>
 ]]></content>
   </entry>
   
