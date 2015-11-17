@@ -4,7 +4,7 @@
   <title><![CDATA[Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2015-11-17T20:16:00+08:00</updated>
+  <updated>2015-11-17T20:19:49+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -12,6 +12,202 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[#使用git-flow]]></title>
+    <link href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/"/>
+    <updated>2015-11-17T20:17:50+08:00</updated>
+    <id>http://phenmod.github.io/blog/2015/11/17/use-git-flow</id>
+    <content type="html"><![CDATA[<h2>关于git-flow</h2>
+
+<p>git鼓励我们多开分支，但是没有一套模型告诉我们如何管理分支，有人总结了一条最佳实践惯例：git-flow，并且提供了一套<a href="https://github.com/nvie/gitflow">git-flow工具</a>来方便我们实践它。</p>
+
+<p><a href="http://ihower.tw/blog/archives/5140">Git flow 開發流程</a>这篇文章介绍了git-flow的入门使用方式。</p>
+
+<p>git-flow创始人写的关于git-flow的文章：<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>。里面详细描述了git-flow的工作方式。这儿有两篇不错的中文翻译： <a href="http://www.uml.org.cn/pzgl/201301065.asp">Git开发管理之道</a>，<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/">一个成功的Git分支模型</a> 。</p>
+
+<p>git-flow的<a href="http://danielkummer.github.io/git-flow-cheatsheet/">cheatsheet</a>，该网页有中文版，翻译得不咋地。里面列出了常用的命令。
+<img src="http://danielkummer.github.io/git-flow-cheatsheet/img/git-flow-commands.png" alt="cheatSheet" /></p>
+
+<h2>安装</h2>
+
+<p>github上git-flow的<a href="https://github.com/nvie/gitflow/wiki/Installation">安装页</a>。</p>
+
+<p>如果在mac上安装了brew，直接用brew安装</p>
+
+<pre><code>brew install git-flow
+</code></pre>
+
+<h3>git-flow-completion</h3>
+
+<p>命令行不默认自动补齐git flow命令，安装一个git-flow-completion，它可以让你的Bash、Zsh支持命令行自动补齐，github项目地址<a href="https://github.com/bobthecow/git-flow-completion">在此</a>。</p>
+
+<p>我用的oh-my-zsh，它的最新包里面有git-flow插件(<code>~/.oh-my-zsh/plugins/git-flow</code>)，这个插件其实用的就是git-flow-completion的内容。修改~/.zshrc的plugins，添加使用git-flow插件即可。我的plugin列表如下</p>
+
+<pre><code>plugins=(git git-flow git-flow-completion python svn xcode ruby perl)
+</code></pre>
+
+<p>（关于brew和oh-my-zsh，参见文章：mac上常用软件）</p>
+
+<h2>使用</h2>
+
+<h3>init</h3>
+
+<p>git flow init [-d]
+提示你各个分支的命名及tag前缀。[-d]表示接受所有默认设置。</p>
+
+<h3>开发新功能(feature)</h3>
+
+<p>based on develop</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow feature start login</span></code></pre></td></tr></table></div></figure>
+
+
+<p>从 <code>develop</code> 分支创建了一个新的分支 feature/login，并自动切换到这个分支下面。然后就可以进行 login 功能开发，中间可以多次的 commit 操作。开发完毕后：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow feature finish login</span></code></pre></td></tr></table></div></figure>
+
+
+<p>feature/login分支的代码会被合并到 develop 里面，然后删除该分支，切换回 develop. 到此，新功能开发这个场景完毕。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow feature publish MYFEATURE</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果是合作开发，需要发布新特性到远程服务器，其它用户也可以使用这分支。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow feature pull MYFEATURE</span></code></pre></td></tr></table></div></figure>
+
+
+<p>取得一个其它用户发布的新特性分支，并签出远程的变更。</p>
+
+<h3>发布上线前(release)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow release start v0.1.0 [BASE]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>git-flow 从 <code>develop</code> 分支创建一个新的分支，做发布前的一些事情，如修改版本号，fix最后的一些bug。</p>
+
+<p>完成后，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow release finish v0.1.0</span></code></pre></td></tr></table></div></figure>
+
+
+<p>git-flow 会依次切换到 master develop 下合并 release/0.1 里的修改，然后用 git tag 给当次发布打上tag v0.1.0。
+release分支里的东西会自动合并到master和develop里。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow release publish v0.1.0</span></code></pre></td></tr></table></div></figure>
+
+
+<p>创建 release 分支之后立即发布允许其它用户向这个 release 分支提交见容是个明智的做法。命令十分类似发布新特性。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow release track v0.1.0</span></code></pre></td></tr></table></div></figure>
+
+
+<p>签出 v0.1.0 版本的远程变更</p>
+
+<h3>紧急bug修正(hotfix)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow hotfix start bug1 [BASENAME]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>git-flow 从 <code>master</code> 分支创建一个新的分支 hotfix/bug1，并切换到该分支下。接下来要做的就是修复 bug，完成后：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow hotfix finish bug1 </span></code></pre></td></tr></table></div></figure>
+
+
+<p>git-flow 会依次切换到 master、develop 分支下合并 hotfix/bug1，然后删掉 hotfix/bug1。到此，hotfix 完成。</p>
+
+<h3>support分支</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git flow support
+</span><span class='line'>git flow support start &lt;release&gt; &lt;base&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>也是从 <code>master</code>创建的新分支，目前不推荐用。</p>
+
+<blockquote><p>git-flow 的 feature、release 都是从 develop 分支创建，hotfix、support 都是从 master 分支创建。</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[使用Git]]></title>
+    <link href="http://phenmod.github.io/blog/2015/11/17/use-git/"/>
+    <updated>2015-11-17T20:17:39+08:00</updated>
+    <id>http://phenmod.github.io/blog/2015/11/17/use-git</id>
+    <content type="html"><![CDATA[<h2>简介</h2>
+
+<p>Git是个分布式版本管理系统，本地自己的机器上有代码库，远程服务器上也有代码库。每个人要做的事情就是把自己的代码提交到本地，再把别人提交到服务器上的最新代码拉到本地，修改冲突之后，再将最终的正确代码再推送到远程服务器上面去。多从这个概念来理解，很快就能上手了。</p>
+
+<h2>git、ssh配置及bitbucket账号设置</h2>
+
+<p>mac系统有默认git，可以直接使用，从命令行运行以下命令可以见到当前git的版本。
+    git –-version</p>
+
+<h3>为git设置ssh</h3>
+
+<ol>
+<li>运行命令：ssh-keygen ，会让输入名称什么的，直接回车三次即可。运行命令后，出现~/.ssh文件夹，里面有两个文件，分别为RSA的公钥和私钥，将公钥文件id_rsa.pub里的内容copy出来。</li>
+<li>当前我们的代码托管在bitbucket.org上，需要你注册一个bitbucket.org账号。</li>
+<li>进入bitbucket的个人账户管理页面，找到"SSH Keys"，点击"Add key"，将第一步中id_rsa.pub里的内容粘贴进去。~/.ssh中会出现第三个文件kown_hosts。</li>
+</ol>
+
+
+<p>参见：
++ <a href="http://boliquan.com/bitbucket-method-of-use/">Bitbucket使用方法</a>
++ <a href="http://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Set up SSH for Git</a></p>
+
+<h2>试用一下</h2>
+
+<p>配置完成之后自己新建个工程传到bitbucket上去，并且试用一下其基本功能。
+我们最常用的就是下面这几个命令</p>
+
+<pre><code>git add .       #如果有新添加的文件，将这些文件添加到本地版本库
+git commit -am "changed something"      #然后将代码提交到本地代码库
+git pull origin develop     #把服务器代码库上develop分支的最新代码拉下来，自动合并到本地代码库的develop分支
+……      #如果有冲突，修改冲突代码，然后再次commit
+git push origin develop     #将本地develop分支的代码提交到服务器的develop分支
+</code></pre>
+
+<p>有了上面这四个，基本的功能就可以实现了。</p>
+
+<p>从服务器上拉下最新代码之前，如果不想提交当前代码，可以这样：</p>
+
+<pre><code>git stash       #将当前工程暂存
+git pull origin develop     #更新远程服务器上的代码到本地
+git stash pop   #弹出刚才暂存的当前工程，合并代码
+</code></pre>
+
+<h2>推荐教程</h2>
+
+<ol>
+<li><a href="http://sites.google.com/site/nanjunjie/download/Git_Magic_CN.pdf">Git Magit</a>：很简单很优秀的一个入门教程。</li>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程</a>：另一个浅显易懂的教程。</li>
+<li><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html">图解Git</a>：常用命令的工作原理，有助于透彻理解。</li>
+<li><a href="http://www.open-open.com/lib/view/open1328069609436.html">Git详解</a>：比较全面的介绍了Git的使用。本站有不少好文章。</li>
+<li><a href="http://git-scm.com/book/en/v2">Pro Git</a>：git官网上的书，覆盖全面，深入浅出，原理介绍得透彻。推荐通读。</li>
+<li><a href="http://gitbook.liuhui998.com/index.html">Git Community Book 中文版</a></li>
+</ol>
+
+
+<h2>分支管理方案</h2>
+
+<p>Git鼓励大量使用分支开发，但是分支多了容易乱，我们使用一套比较成熟的分支管理方案git-flow，详情参见</p>
+
+<blockquote><p>使用git-flow.md</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mac下推荐的软件]]></title>
