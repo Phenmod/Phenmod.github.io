@@ -4,7 +4,7 @@
   <title><![CDATA[Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2015-11-17T20:41:13+08:00</updated>
+  <updated>2015-11-17T20:42:35+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -20,7 +20,7 @@
     <id>http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code</id>
     <content type="html"><![CDATA[<p>插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a></p>
 
-<p>这个是我们自己定义的格式配置文件<a href="http://www.phenmod.com">.format</a></p>
+<p>这个是我们自己定义的格式配置文件<a href="https://github.com/Phenmod/Phenmod.github.io/blob/master/assets/.clang-format">.format</a></p>
 
 <p>这个是Parse的配置文件：<a href="https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format">https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format</a></p>
 
