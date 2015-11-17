@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/</loc>
+    <lastmod>2015-11-17T20:26:17+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://phenmod.github.io/blog/2015/11/17/use-git-flow/</loc>
     <lastmod>2015-11-17T20:17:50+08:00</lastmod>
   </url>

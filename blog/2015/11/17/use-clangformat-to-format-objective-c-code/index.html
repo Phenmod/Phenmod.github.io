@@ -5,16 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Phenmod Zhu's Blog</title>
+  <title>使用 ClangFormat 插件格式化Objective-C代码 - Phenmod Zhu's Blog</title>
   <meta name="author" content="朱兴灿">
 
   
-  <meta name="description" content="Blog Archive 2015 使用 ClangFormat 插件格式化Objective-C代码
-Nov 17 2015 使用git-flow
-Nov 17 2015 使用Git
-Nov 17 2015 Mac下推荐的软件
-Nov 17 2015 iOS新人入门文档
-Nov 17 2015 &hellip;">
+  <meta name="description" content="插件地址：https://github.com/travisjeffery/ClangFormat-Xcode 这个是我们自己定义的格式配置文件.format 这个是Parse的配置文件：https://github.com/ParsePlatform/xctoolchain/blob/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -23,7 +18,7 @@ Nov 17 2015 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://phenmod.github.io/blog/archives/">
+  <link rel="canonical" href="http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Phenmod Zhu's Blog" type="application/atom+xml">
@@ -69,71 +64,87 @@ Nov 17 2015 &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">使用 ClangFormat 插件格式化Objective-C代码</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-11-17T20:26:17+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:26 pm</span></time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a></p>
 
-  
-  <h2>2015</h2>
+<p>这个是我们自己定义的格式配置文件<a href="http://www.phenmod.com">.format</a></p>
 
-<article>
-  
-<h1><a href="/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">使用 ClangFormat 插件格式化Objective-C代码</a></h1>
-<time datetime="2015-11-17T20:26:17+08:00" pubdate><span class='month'>Nov</span> <span class='day'>17</span> <span class='year'>2015</span></time>
+<p>这个是Parse的配置文件：<a href="https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format">https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format</a></p>
 
+<p>每次提交前，必须格式化代码。
+用了这个之后，基本上就不用开发者做排版的事情了，哗啦啦写完代码，一键格式化，人生舒爽了很多。</p>
 
-</article>
+<p>关于空行：
+配置文件里我们现在允许最多连续两行空行，正在考虑只允许一行。
+确实有分段视觉需求的，使用pragma mark进行分割，如下：
+// =================================================================================================</p>
 
+<h1>pragma mark - &lt;#代码分块注释#></h1>
 
+<p>// =================================================================================================
+用它定义个code snippet，来个快捷键(我的是pm)，省心啊。</p>
 
-<article>
-  
-<h1><a href="/blog/2015/11/17/use-git-flow/">使用git-flow</a></h1>
-<time datetime="2015-11-17T20:17:50+08:00" pubdate><span class='month'>Nov</span> <span class='day'>17</span> <span class='year'>2015</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/11/17/use-git/">使用Git</a></h1>
-<time datetime="2015-11-17T20:17:39+08:00" pubdate><span class='month'>Nov</span> <span class='day'>17</span> <span class='year'>2015</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/11/17/recommend-some-mac-os-software/">Mac下推荐的软件</a></h1>
-<time datetime="2015-11-17T20:05:03+08:00" pubdate><span class='month'>Nov</span> <span class='day'>17</span> <span class='year'>2015</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/11/17/to-ios-fresh-man/">iOS新人入门文档</a></h1>
-<time datetime="2015-11-17T19:35:21+08:00" pubdate><span class='month'>Nov</span> <span class='day'>17</span> <span class='year'>2015</span></time>
-
-
-</article>
-
+<p>关于每行字符限制：
+如果你把上面的pragma段拷贝到xcode，会发现上面那一串等号会终止在第100列。没错，我们现在每行字符数限制就是100。
+其实我很想定义到120，但是在某些同学的macbook air的小屏幕上不太够显示。</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">朱兴灿</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-11-17T20:26:17+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:26 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/" data-via="Phenmod" data-counturl="http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/11/17/use-git-flow/" title="Previous Post: 使用git-flow">&laquo; 使用git-flow</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

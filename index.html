@@ -9,7 +9,7 @@
   <meta name="author" content="朱兴灿">
 
   
-  <meta name="description" content="关于git-flow git鼓励我们多开分支，但是没有一套模型告诉我们如何管理分支，有人总结了一条最佳实践惯例：git-flow，并且提供了一套git-flow工具来方便我们实践它。 Git flow 開發流程这篇文章介绍了git-flow的入门使用方式。 git-flow创始人写的关于git- &hellip;">
+  <meta name="description" content="插件地址：https://github.com/travisjeffery/ClangFormat-Xcode 这个是我们自己定义的格式配置文件.format 这个是Parse的配置文件：https://github.com/ParsePlatform/xctoolchain/blob/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">使用 ClangFormat 插件格式化Objective-C代码</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-11-17T20:26:17+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:26 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a></p>
+
+<p>这个是我们自己定义的格式配置文件<a href="http://www.phenmod.com">.format</a></p>
+
+<p>这个是Parse的配置文件：<a href="https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format">https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format</a></p>
+
+<p>每次提交前，必须格式化代码。
+用了这个之后，基本上就不用开发者做排版的事情了，哗啦啦写完代码，一键格式化，人生舒爽了很多。</p>
+
+<p>关于空行：
+配置文件里我们现在允许最多连续两行空行，正在考虑只允许一行。
+确实有分段视觉需求的，使用pragma mark进行分割，如下：
+// =================================================================================================</p>
+
+<h1>pragma mark - &lt;#代码分块注释#></h1>
+
+<p>// =================================================================================================
+用它定义个code snippet，来个快捷键(我的是pm)，省心啊。</p>
+
+<p>关于每行字符限制：
+如果你把上面的pragma段拷贝到xcode，会发现上面那一串等号会终止在第100列。没错，我们现在每行字符数限制就是100。
+其实我很想定义到120，但是在某些同学的macbook air的小屏幕上不太够显示。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -481,6 +531,10 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">使用 ClangFormat 插件格式化Objective-C代码</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/11/17/use-git-flow/">使用git-flow</a>
