@@ -89,55 +89,55 @@
 
   <div class="entry-content"><p>传说中，Mac电脑是程序员专用的“飞机中的战斗机”，baidu一下“mac软件推荐”，你会得到很多优秀的工具。下面是我常用的几款，具体安装及使用方式不细说。</p>
 
-<ol>
+<ul>
 <li><p>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</p></li>
 <li><p>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令</p>
 
-<pre><code> curl -L http://install.ohmyz.sh | sh
+<pre><code>  curl -L http://install.ohmyz.sh | sh
 </code></pre>
 
-<p> 具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></p></li>
+<p>  具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></p></li>
 <li><p>SourceTree ：git的图形化操作工具。</p></li>
 <li><p>brew ：Mac下安装常用软件的利器。</p>
 
-<pre><code> brew install &lt;package_name&gt;     #安装一个包
- brew update                     #更新 Homebrew 在服务器端上的包目录
- brew outdated                   #查看你的包是否需要更新
- brew upgrade &lt;package_name&gt;     #更新包
- brew cleanup                    #Homebrew 将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行
- brew list --versions            #查看你安装过的包列表（包括版本号）
- brew search &lt;package_name&gt;      #搜索
+<pre><code>  brew install &lt;package_name&gt;     #安装一个包
+  brew update                     #更新 Homebrew 在服务器端上的包目录
+  brew outdated                   #查看你的包是否需要更新
+  brew upgrade &lt;package_name&gt;     #更新包
+  brew cleanup                    #Homebrew 将会把老版本的包缓存下来，以便当你想回滚至旧版本时使用。但这是比较少使用的情况，当你想清理旧版本的包缓存时，可以运行
+  brew list --versions            #查看你安装过的包列表（包括版本号）
+  brew search &lt;package_name&gt;      #搜索
 </code></pre>
 
-<p><a href="https://github.com/caskroom/homebrew-cask">brew cask</a> : 优雅、简单、快速的安装和管理 OS X 图形界面程序。<a href="http://caskroom.io/">caskroom.io</a>。 brew cask装的软件会放到 <code>/opt/homebrew-cask/Caskroom</code> 下面，然后连接到 <code>~/Applications</code>。 跟系统默认安装位置 <code>/Applications</code>不一样。</p>
+<p> <a href="https://github.com/caskroom/homebrew-cask">brew cask</a> : 优雅、简单、快速的安装和管理 OS X 图形界面程序。<a href="http://caskroom.io/">caskroom.io</a>。 brew cask装的软件会放到 <code>/opt/homebrew-cask/Caskroom</code> 下面，然后连接到 <code>~/Applications</code>。 跟系统默认安装位置 <code>/Applications</code>不一样。</p>
 
-<pre><code> brew tap caskroom/cask          #添加 Github 上的 caskroom/cask 库
- brew install brew-cask          #安装 brew-cask
- brew cask install google-chrome     #安装 Google 浏览器
- brew update &amp;&amp; brew upgrade brew-cask &amp;&amp; brew cleanup #更新
- brew search &lt;package_name&gt;      #搜索想要的软件。
+<pre><code>  brew tap caskroom/cask          #添加 Github 上的 caskroom/cask 库
+  brew install brew-cask          #安装 brew-cask
+  brew cask install google-chrome     #安装 Google 浏览器
+  brew update &amp;&amp; brew upgrade brew-cask &amp;&amp; brew cleanup #更新
+  brew search &lt;package_name&gt;      #搜索想要的软件。
 </code></pre>
 
-<p> 一些我的安装包</p>
+<p>  一些我的安装包</p>
 
-<pre><code> brew cask install appcleaner
- brew cask install cheatsheet
- brew cask install dropbox
- brew cask install onepassword
- brew cask install totalfinder
+<pre><code>  brew cask install appcleaner
+  brew cask install cheatsheet
+  brew cask install dropbox
+  brew cask install onepassword
+  brew cask install totalfinder
 </code></pre>
 
-<p> 强烈推荐装一些Finder里空格键快速查看文件内容的<a href="https://github.com/sindresorhus/quick-look-plugins">插件</a></p>
+<p>  强烈推荐装一些Finder里空格键快速查看文件内容的<a href="https://github.com/sindresorhus/quick-look-plugins">插件</a></p>
 
-<pre><code> brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
+<pre><code>  brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
 </code></pre>
 
-<p> 如果你经常使用 Alfred 启动程序，那么你会想 Alfred 可以搜索 brew cask 安装的程序，实现这些仅需运行：</p>
+<p>  如果你经常使用 Alfred 启动程序，那么你会想 Alfred 可以搜索 brew cask 安装的程序，实现这些仅需运行：</p>
 
-<pre><code> brew cask alfred link
+<pre><code>  brew cask alfred link
 </code></pre>
 
-<p> 此外，你还可以通过 brew cask 安装 <a href="https://github.com/jimbojsb/launchrocket">launchrocket</a>，来管理通过 brew 安装的 service</p></li>
+<p>  此外，你还可以通过 brew cask 安装 <a href="https://github.com/jimbojsb/launchrocket">launchrocket</a>，来管理通过 brew 安装的 service</p></li>
 <li><p>Alfred ：自定义各种快捷操作，神器。</p></li>
 <li>Moom ：快速设置窗口的位置及大小，全键盘流的福音。</li>
 <li>Parallel Desktop ：想安装个虚拟机就用它吧，无缝连接系统，牛叉无比。</li>
@@ -150,7 +150,7 @@
 <li><a href="http://www.grandtotal.biz/CheatSheet/">cheatSheat</a>：长按 command ，将能查看当前程序的快捷键，好用到爆。</li>
 <li><a href="http://www.sequelpro.com/download">Sequel Pro</a>：mysql，远端、本地数据库连接，方便易用</li>
 <li><a href="http://www.freemacsoft.net/appcleaner/">AppCleaner</a>：应用程序卸载工具</li>
-</ol>
+</ul>
 
 
 <p>另外的几个相关推荐帖子：</p>
