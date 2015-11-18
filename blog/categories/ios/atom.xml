@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ios | Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2015-11-17T20:59:35+08:00</updated>
+  <updated>2015-11-18T10:42:33+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[使用 ClangFormat 插件格式化 Objective-C 代码]]></title>
+    <link href="http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/"/>
+    <updated>2015-11-17T20:26:17+08:00</updated>
+    <id>http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code</id>
+    <content type="html"><![CDATA[<p>插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a></p>
+
+<p>这个是我们自己定义的格式配置文件<a href="https://github.com/Phenmod/Phenmod.github.io/blob/master/assets/.clang-format">.format</a></p>
+
+<p>这个是Parse的配置文件：<a href="https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format">https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format</a></p>
+
+<p>每次提交前，必须格式化代码。
+用了这个之后，基本上就不用开发者做排版的事情了，哗啦啦写完代码，一键格式化，人生舒爽了很多。</p>
+
+<h2>关于空行</h2>
+
+<p>配置文件里我们现在允许最多连续两行空行，正在考虑只允许一行。</p>
+
+<p>确实有分段视觉需求的，使用pragma mark进行分割，如下：</p>
+
+<pre><code>// =================================================================================================
+#pragma mark - &lt;#代码分块注释#&gt;
+// =================================================================================================
+</code></pre>
+
+<p>用它定义个code snippet，来个快捷键(我的是pm)，省心啊。</p>
+
+<p>关于每行字符限制：</p>
+
+<p>如果你把上面的pragma段拷贝到xcode，会发现上面那一串等号会终止在第100列。没错，我们现在每行字符数限制就是100。</p>
+
+<p>其实我很想定义到120，但是在某些同学的macbook air的小屏幕上不太够显示。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[iOS新人入门文档]]></title>
