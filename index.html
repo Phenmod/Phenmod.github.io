@@ -114,10 +114,11 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>clang-format -style=WebKit -dump-config &gt; .clang-format</span></code></pre></td></tr></table></div></figure>
 
 
-<blockquote><p>注意，文件名最前面有个点，改名后会变为隐藏文件。如果你的 Finder 不能显示隐藏文件，可运行下面两条命令</p>
-
-<p>   defaults write com.apple.finder AppleShowAllFiles -bool true
-   killall Finder</p></blockquote>
+<blockquote><p>注意，文件名最前面有个点，改名后会变为隐藏文件。如果你的 Finder 不能显示隐藏文件，可运行下面两条命令  <br/>
+   <code>
+   defaults write com.apple.finder AppleShowAllFiles -bool true
+   killall Finder
+  </code></p></blockquote>
 
 <ul>
 <li>勾选上 <code>Xcode -&gt; Edit -&gt; Clang Format -&gt; File</code>，该插件就会使用我们放到用户文件夹的配置文件对源码进行格式化了。</li>
