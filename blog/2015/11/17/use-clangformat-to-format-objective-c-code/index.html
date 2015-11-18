@@ -9,7 +9,7 @@
   <meta name="author" content="朱兴灿">
 
   
-  <meta name="description" content="多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如 Dropbox、Parse。 在 iOS 工程中， &hellip;">
+  <meta name="description" content="多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格有几个、括号是否换行等等，也会不必要地浪费一些精力。于是不少公司会使用一些工具对代码进行自动格式化，比如 Dropbox、Parse。 在 iOS 工程中， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,9 +84,9 @@
   </header>
 
 
-<div class="entry-content"><p>多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如 Dropbox、Parse。</p>
+<div class="entry-content"><p>多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格有几个、括号是否换行等等，也会不必要地浪费一些精力。于是不少公司会使用一些工具对代码进行自动格式化，比如 Dropbox、Parse。</p>
 
-<p>在 iOS 工程中，我们使用 ClangFormat 工具来格式化代码，Xcode 有方便的插件可用。插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a>。</p>
+<p>在 iOS 工程中，我们使用 <a href="http://clang.llvm.org/docs/ClangFormat.html">ClangFormat</a> 工具来格式化代码，Xcode 有方便的插件可用。插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a>。</p>
 
 <h2>安装</h2>
 
@@ -105,7 +105,7 @@
 </ul>
 
 
-<p>或者自己使用 clang-format 导出一份再作修改。</p>
+<p>或者自己使用 clang-format 导出一份配置文件再自己修改。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>clang-format -style=WebKit -dump-config &gt; .clang-format</span></code></pre></td></tr></table></div></figure>
