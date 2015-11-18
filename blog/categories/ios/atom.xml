@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ios | Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2015-11-18T12:06:54+08:00</updated>
+  <updated>2015-11-18T14:08:25+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -18,9 +18,48 @@
     <link href="http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/"/>
     <updated>2015-11-17T20:26:17+08:00</updated>
     <id>http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code</id>
-    <content type="html"><![CDATA[<p>多人开发的工程中，每人负责的部分代码风格各异，如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适感。各种简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如Dropbox、Parse。有些公司会在提交前先自动格式化所有代码。</p>
+    <content type="html"><![CDATA[<p>多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如Dropbox、Parse。有些公司会在提交前先自动格式化所有代码。</p>
 
-<p>在iOS工程中，我们使用ClangFormat工具进行，Xcode有方便的插件可用。插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a>。</p>
+<p>在iOS工程中，我们使用ClangFormat工具来格式化代码，Xcode有方便的插件可用。插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a>。</p>
+
+<h2>安装</h2>
+
+<ul>
+<li>安装clang-format</li>
+</ul>
+
+
+<pre><code>brew install clang-format
+</code></pre>
+
+<ul>
+<li><p>安装Xcode插件<a href="https://github.com/travisjeffery/ClangFormat-Xcode">ClangFormat-Xcode</a>。可通过<a href="https://github.com/supermarin/Alcatraz">Alcatraz</a>或者直接下载源代码编译运行，然后重启 Xcode 。</p></li>
+<li><p>下载本<a href="https://github.com/Phenmod/Phenmod.github.io/blob/master/assets/.clang-format">源码格式配置文件</a>，文件名为为 <code>.clang-format</code>，把它放到 <code>/Users/yourname/</code> 下，你的所有工程都会使用本配置文件。也可单独放到某工程文件夹里，仅限本工程使用。</p>
+
+<p>  注意，文件名最前面有个点，改名后会变为隐藏文件。如果你的 Finder 不能显示隐藏文件，可运行下面两条命令</p>
+
+<pre><code class="``">  defaults write com.apple.finder AppleShowAllFiles -bool true
+
+  killall Finder
+</code></pre></li>
+<li><p>勾选上 <code>Xcode -&gt; Edit -&gt; Clang Format -&gt; File</code>，该插件就会使用我们放到用户文件夹的配置文件对源码进行格式化了。</p></li>
+</ul>
+
+
+<h2>使用方式</h2>
+
+<ol>
+<li>可以手动点选 <code>Xcode -&gt; Edit -&gt; Clang Format -&gt; Format File in Focus</code> 对当前选中的文件进行格式化。也可以选择其它两个选项对当前选中的文本或多个文件进行格式化。</li>
+<li>可以选中 <code>Xcode -&gt; Edit -&gt; Clang Format -&gt; Enable Format on Save</code>，使之变为 <code>Disable Format on Save</code>，这样在每次 <code>cmd + s</code> 保存文件时，都会自动格式化文件了。</li>
+<li><p>可以给 Xcode 配置系统快捷键。比如我们可以配置 <code>ctr + i</code> 作为对当前选中文件进行格式化的快捷键。步骤如下：</p>
+
+<ul>
+<li>打开<code>系统偏好设置 -&gt; 键盘 -&gt; 快捷键 -&gt; 应用程序快捷键</code>，并点击 <code>+</code>。</li>
+<li>设置应用程序为 <code>Xcode</code>，菜单标题为 <code>Format File in Focus</code>，快捷键里按下 <code>ctr + i</code>。当然，你也可以使用为其它命令设置快捷键。</li>
+</ul>
+</li>
+</ol>
+
 
 <p>每个人在提交代码之前，必须格式化代码。
 用了这个之后，基本上就不用开发者做排版的事情了，哗啦啦写完代码，一键格式化，人生舒爽了很多。</p>
