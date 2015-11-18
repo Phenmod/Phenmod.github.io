@@ -111,14 +111,10 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>clang-format -style=WebKit -dump-config &gt; .clang-format</span></code></pre></td></tr></table></div></figure>
 
 
-<pre><code>注意，文件名最前面有个点，改名后会变为隐藏文件。如果你的 Finder 不能显示隐藏文件，可运行下面两条命令
+<blockquote><p>注意，文件名最前面有个点，改名后会变为隐藏文件。如果你的 Finder 不能显示隐藏文件，可运行下面两条命令</p>
 
-```
-defaults write com.apple.finder AppleShowAllFiles -bool true
-
-killall Finder
-```
-</code></pre>
+<p>   defaults write com.apple.finder AppleShowAllFiles -bool true
+   killall Finder</p></blockquote>
 
 <ul>
 <li>勾选上 <code>Xcode -&gt; Edit -&gt; Clang Format -&gt; File</code>，该插件就会使用我们放到用户文件夹的配置文件对源码进行格式化了。</li>
@@ -130,9 +126,13 @@ killall Finder
 <ul>
 <li>可以手动点选 <code>Xcode -&gt; Edit -&gt; Clang Format -&gt; Format File in Focus</code> 对当前选中的文件进行格式化。也可以选择其它两个选项对当前选中的文本或多个文件进行格式化。</li>
 <li>可以选中 <code>Xcode -&gt; Edit -&gt; Clang Format -&gt; Enable Format on Save</code>，使之变为 <code>Disable Format on Save</code>，这样在每次 <code>cmd + s</code> 保存文件时，都会自动格式化文件了。</li>
-<li><p>可以给 Xcode 配置系统快捷键。比如我们可以配置 <code>ctr + i</code> 作为对当前选中文件进行格式化的快捷键。步骤如下：</p></li>
-<li><p>打开<code>系统偏好设置 -&gt; 键盘 -&gt; 快捷键 -&gt; 应用程序快捷键</code>，并点击 <code>+</code>。</p></li>
+<li>可以给 Xcode 配置系统快捷键。比如我们可以配置 <code>ctr + i</code> 作为对当前选中文件进行格式化的快捷键。步骤如下：
+
+<ul>
+<li>打开<code>系统偏好设置 -&gt; 键盘 -&gt; 快捷键 -&gt; 应用程序快捷键</code>，并点击 <code>+</code>。</li>
 <li>设置应用程序为 <code>Xcode</code>，菜单标题为 <code>Format File in Focus</code>，快捷键里按下 <code>ctr + i</code>。当然，你也可以使用为其它命令设置快捷键。</li>
+</ul>
+</li>
 </ul>
 
 
