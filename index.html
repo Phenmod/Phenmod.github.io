@@ -9,7 +9,7 @@
   <meta name="author" content="朱兴灿">
 
   
-  <meta name="description" content="多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如Dropbox、Parse。 &hellip;">
+  <meta name="description" content="多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如 Dropbox、Parse。 在 iOS 工程中， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -87,14 +87,14 @@
   </header>
 
 
-  <div class="entry-content"><p>多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如Dropbox、Parse。有些公司会在提交前先自动格式化所有代码。</p>
+  <div class="entry-content"><p>多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如 Dropbox、Parse。</p>
 
-<p>在iOS工程中，我们使用ClangFormat工具来格式化代码，Xcode有方便的插件可用。插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a>。</p>
+<p>在 iOS 工程中，我们使用 ClangFormat 工具来格式化代码，Xcode 有方便的插件可用。插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a>。</p>
 
 <h2>安装</h2>
 
 <ul>
-<li>安装clang-format</li>
+<li>安装 clang-format</li>
 </ul>
 
 
@@ -103,16 +103,28 @@
 
 
 <ul>
-<li><p>安装Xcode插件<a href="https://github.com/travisjeffery/ClangFormat-Xcode">ClangFormat-Xcode</a>。可通过<a href="https://github.com/supermarin/Alcatraz">Alcatraz</a>或者直接下载源代码编译运行，然后重启 Xcode 。</p></li>
-<li><p>下载本<a href="https://github.com/Phenmod/Phenmod.github.io/blob/master/assets/.clang-format">源码格式配置文件</a>，文件名为为 <code>.clang-format</code>，把它放到 <code>/Users/yourname/</code> 下，你的所有工程都会使用本配置文件。也可单独放到某工程文件夹里，仅限本工程使用。</p>
+<li><p>安装 Xcode 插件 <a href="https://github.com/travisjeffery/ClangFormat-Xcode">ClangFormat-Xcode</a>。可通过 <a href="https://github.com/supermarin/Alcatraz">Alcatraz</a>或者直接下载源代码编译运行，然后重启 Xcode 。</p></li>
+<li><p>下载本人使用的<a href="https://github.com/Phenmod/Phenmod.github.io/blob/master/assets/.clang-format">格式配置文件</a>，文件名为 <code>.clang-format</code>，把它放到 <code>/Users/yourname/</code> 下，你的所有工程都会使用本配置文件。也可单独放到某工程文件夹里，仅限本工程使用。</p></li>
+</ul>
 
-<p>  注意，文件名最前面有个点，改名后会变为隐藏文件。如果你的 Finder 不能显示隐藏文件，可运行下面两条命令</p>
 
-<pre><code class="``">  defaults write com.apple.finder AppleShowAllFiles -bool true
+<p>或者自己使用 clang-format 导出一份再作修改。</p>
 
-  killall Finder
-</code></pre></li>
-<li><p>勾选上 <code>Xcode -&gt; Edit -&gt; Clang Format -&gt; File</code>，该插件就会使用我们放到用户文件夹的配置文件对源码进行格式化了。</p></li>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>clang-format -style=WebKit -dump-config &gt; .clang-format</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>注意，文件名最前面有个点，改名后会变为隐藏文件。如果你的 Finder 不能显示隐藏文件，可运行下面两条命令
+
+```
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+killall Finder
+```
+</code></pre>
+
+<ul>
+<li>勾选上 <code>Xcode -&gt; Edit -&gt; Clang Format -&gt; File</code>，该插件就会使用我们放到用户文件夹的配置文件对源码进行格式化了。</li>
 </ul>
 
 
