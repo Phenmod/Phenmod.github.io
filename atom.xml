@@ -4,7 +4,7 @@
   <title><![CDATA[Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2015-11-18T14:47:55+08:00</updated>
+  <updated>2015-11-18T14:50:47+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -80,13 +80,11 @@
 
 <p>该插件默认了几种风格可供选用，但都不太符合我们想要的形式，于是自己定义了一个格式配置文件<a href="https://github.com/Phenmod/Phenmod.github.io/blob/master/assets/.clang-format">.format</a></p>
 
-<p>这个是<a href="http://clang.llvm.org/docs/ClangFormatStyleOptions.html">ClangFormat各配置项字段的详细说明</a>，还有个<a href="http://clangformat.com/">用实例解释的可交互网站</a>。</p>
+<p>这个是<a href="http://clang.llvm.org/docs/ClangFormatStyleOptions.html">ClangFormat各配置项字段的详细说明</a>，还有个<a href="http://clangformat.com/">用实例解释各字段的可交互网站</a>。</p>
 
 <p>这个是<a href="https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format">Parse的配置文件</a>，可做参考对比。</p>
 
 <p>我们的这个配置还有很多不足的地方，比如长字符串会因为每行字符数限制被截断成两个字符串，并且每格式化一次，就再多截一段，直至截到某个阶段才不再变化。造成一个好好的字符串，变成了好几个只包含了一个或几个字符的字符串。</p>
-
-<p>但相比不用自动格式化时，不同人对 block 排版使用不同的缩进方式造成的阅读困难，我觉得现在还好。</p>
 
 <h2>关于空行</h2>
 
