@@ -9,7 +9,7 @@
   <meta name="author" content="朱兴灿">
 
   
-  <meta name="description" content="插件地址：https://github.com/travisjeffery/ClangFormat-Xcode 这个是我们自己定义的格式配置文件.format 这个是Parse的配置文件：https://github.com/ParsePlatform/xctoolchain/blob/ &hellip;">
+  <meta name="description" content="多人开发的工程中，每人负责的部分代码风格各异，如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适感。各种简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如Dropbox、Parse。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,14 +84,24 @@
   </header>
 
 
-<div class="entry-content"><p>插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a></p>
+<div class="entry-content"><p>多人开发的工程中，每人负责的部分代码风格各异，如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适感。各种简单的排版工作，比如空格的使用，括号的换行等等，也会浪费很多不必要的精力。于是不少公司会使用一些工具对代码进行自动格式化，比如Dropbox、Parse。有些公司会在提交前先自动格式化所有代码。</p>
 
-<p>这个是我们自己定义的格式配置文件<a href="https://github.com/Phenmod/Phenmod.github.io/blob/master/assets/.clang-format">.format</a></p>
+<p>在iOS工程中，我们使用ClangFormat工具进行，Xcode有方便的插件可用。插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a>。</p>
 
-<p>这个是Parse的配置文件：<a href="https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format">https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format</a></p>
-
-<p>每次提交前，必须格式化代码。
+<p>每个人在提交代码之前，必须格式化代码。
 用了这个之后，基本上就不用开发者做排版的事情了，哗啦啦写完代码，一键格式化，人生舒爽了很多。</p>
+
+<h2>格式配置文件</h2>
+
+<p>该插件默认了几种风格可供选用，但都不太符合我们想要的形式，于是自己定义了一个格式配置文件<a href="https://github.com/Phenmod/Phenmod.github.io/blob/master/assets/.clang-format">.format</a></p>
+
+<p>这个是<a href="http://clang.llvm.org/docs/ClangFormatStyleOptions.html">ClangFormat各配置项字段的详细说明</a>，还有个<a href="http://clangformat.com/">用实例解释的可交互网站</a>。</p>
+
+<p>这个是<a href="https://github.com/ParsePlatform/xctoolchain/blob/master/.clang-format">Parse的配置文件</a>，可做参考对比。</p>
+
+<p>我们的这个配置还有很多不足的地方，比如长字符串会因为每行字符数限制被截断成两个字符串，并且每格式化一次，就再多截一段，直至截到某个阶段才不再变化。造成一个好好的字符串，变成了好几个只包含了一个或几个字符的字符串。</p>
+
+<p>但相比不用自动格式化时，不同人对 block 排版使用不同的缩进方式造成的阅读困难，我觉得现在还好。</p>
 
 <h2>关于空行</h2>
 
@@ -109,7 +119,7 @@
 
 <p>用它定义个code snippet，来个快捷键(我的是pm)，省心啊。</p>
 
-<p>关于每行字符限制：</p>
+<h2>关于每行字符限制：</h2>
 
 <p>如果你把上面的pragma段拷贝到xcode，会发现上面那一串等号会终止在第100列。没错，我们现在每行字符数限制就是100。</p>
 
