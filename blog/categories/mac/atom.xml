@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mac | Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/blog/categories/mac/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-09T17:07:25+08:00</updated>
+  <updated>2016-01-09T17:52:21+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -22,14 +22,18 @@
 
 <ol>
 <li><p>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</p></li>
-<li><p>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令</p>
+<li><p>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令</p></li>
+</ol>
 
-<pre><code> curl -L http://install.ohmyz.sh | sh
+
+<pre><code>curl -L http://install.ohmyz.sh | sh
 </code></pre>
 
-<p> 具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></p></li>
-<li><p>SourceTree ：git的图形化操作工具。</p></li>
-<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见『使用brew.md』</li>
+<p>具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></p>
+
+<ol>
+<li>SourceTree ：git的图形化操作工具。</li>
+<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见<a href="/blog/2016/01/09/use-brew/">使用brew.md</a></li>
 <li>Alfred ：自定义各种快捷操作，神器。</li>
 <li>Moom ：快速设置窗口的位置及大小，全键盘流的福音。</li>
 <li>Parallel Desktop ：想安装个虚拟机就用它吧，无缝连接系统，牛叉无比。</li>

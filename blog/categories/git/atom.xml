@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-09T17:07:25+08:00</updated>
+  <updated>2016-01-09T17:52:21+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -14,20 +14,22 @@
 
   
   <entry>
-    <title type="html"><![CDATA[新手入门之使用 Git-flow 做分支管理]]></title>
+    <title type="html"><![CDATA[用 Git-flow 做分支管理]]></title>
     <link href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/"/>
     <updated>2015-11-17T20:17:50+08:00</updated>
     <id>http://phenmod.github.io/blog/2015/11/17/use-git-flow</id>
     <content type="html"><![CDATA[<h2>关于git-flow</h2>
 
-<p>git鼓励我们多开分支，但是没有一套模型告诉我们如何管理分支，有人总结了一条最佳实践惯例：git-flow，并且提供了一套<a href="https://github.com/nvie/gitflow">git-flow工具</a>来方便我们实践它。</p>
+<p>git 鼓励我们多开分支，但是没有一套模型告诉我们如何管理分支，有人总结了一条最佳实践惯例：git-flow，并且提供了一套 <a href="https://github.com/nvie/gitflow">git-flow工具</a>来方便我们实践它。该工具的每个命令都能实现数个 git 命令才能实现的功能，使用起来还是比较方便的。</p>
 
 <p><a href="http://ihower.tw/blog/archives/5140">Git flow 開發流程</a>这篇文章介绍了git-flow的入门使用方式。</p>
 
-<p>git-flow创始人写的关于git-flow的文章：<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>。里面详细描述了git-flow的工作方式。这儿有两篇不错的中文翻译： <a href="http://www.uml.org.cn/pzgl/201301065.asp">Git开发管理之道</a>，<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/">一个成功的Git分支模型</a> 。</p>
+<p>git-flow 创始人写的关于 git-flow 的文章：<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>。里面详细描述了 git-flow 的工作方式。这儿有两篇不错的中文翻译： <a href="http://www.uml.org.cn/pzgl/201301065.asp">Git开发管理之道</a>，<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/">一个成功的Git分支模型</a> 。</p>
 
-<p>git-flow的<a href="http://danielkummer.github.io/git-flow-cheatsheet/">cheatsheet</a>，该网页有中文版，翻译得不咋地。里面列出了常用的命令。
+<p>git-flow的<a href="http://danielkummer.github.io/git-flow-cheatsheet/">cheatsheet</a>，里面列出了常用的命令：
 <img src="http://danielkummer.github.io/git-flow-cheatsheet/img/git-flow-commands.png" alt="cheatSheet" /></p>
+
+<p>该网页比较直观地展示出每个 git-flow 命令实际都做了哪些操作，值得一看。还提供了中文版，翻译得不咋地。</p>
 
 <h2>安装</h2>
 
@@ -130,7 +132,7 @@ git flow support start &lt;release&gt; &lt;base&gt;
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[新手入门之使用Git]]></title>
+    <title type="html"><![CDATA[用 Git 做版本控制]]></title>
     <link href="http://phenmod.github.io/blog/2015/11/17/use-git/"/>
     <updated>2015-11-17T20:17:39+08:00</updated>
     <id>http://phenmod.github.io/blog/2015/11/17/use-git</id>
@@ -152,30 +154,35 @@ git flow support start &lt;release&gt; &lt;base&gt;
 </ol>
 
 
-<p>参见：
-+ <a href="http://boliquan.com/bitbucket-method-of-use/">Bitbucket使用方法</a>
-+ <a href="http://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Set up SSH for Git</a></p>
+<p>参见：</p>
+
+<ul>
+<li><a href="http://boliquan.com/bitbucket-method-of-use/">Bitbucket使用方法</a></li>
+<li><a href="http://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Set up SSH for Git</a></li>
+</ul>
+
 
 <h2>试用一下</h2>
 
-<p>配置完成之后自己新建个工程传到bitbucket上去，并且试用一下其基本功能。
-我们最常用的就是下面这几个命令</p>
+<p>配置完成之后自己新建个工程传到bitbucket上去，并且试用一下其基本功能。</p>
 
-<pre><code>git add .       #如果有新添加的文件，将这些文件添加到本地版本库
-git commit -am "changed something"      #然后将代码提交到本地代码库
-git pull origin develop     #把服务器代码库上develop分支的最新代码拉下来，自动合并到本地代码库的develop分支
-……      #如果有冲突，修改冲突代码，然后再次commit
-git push origin develop     #将本地develop分支的代码提交到服务器的develop分支
-</code></pre>
+<p>我们最常用的就是下面这几个命令：
+<code>
+git add .                          # 如果有新添加的文件，将这些文件添加到本地版本库
+git commit -am "changed something" # 然后将代码提交到本地代码库
+git pull origin develop            # 把服务器代码库上develop分支的最新代码拉下来，自动合并到本地代码库的develop分支
+……                                 # 如果有冲突，修改冲突代码，然后再次commit
+git push origin develop            # 将本地develop分支的代码提交到服务器的develop分支
+</code></p>
 
 <p>有了上面这四个，基本的功能就可以实现了。</p>
 
-<p>从服务器上拉下最新代码之前，如果不想提交当前代码，可以这样：</p>
-
-<pre><code>git stash       #将当前工程暂存
+<p>从服务器上拉下最新代码之前，如果不想提交当前代码，可以这样：
+<code>
+git stash       #将当前工程暂存
 git pull origin develop     #更新远程服务器上的代码到本地
 git stash pop   #弹出刚才暂存的当前工程，合并代码
-</code></pre>
+</code></p>
 
 <h2>推荐教程</h2>
 
@@ -183,7 +190,7 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
 <li><a href="http://sites.google.com/site/nanjunjie/download/Git_Magic_CN.pdf">Git Magit</a>：很简单很优秀的一个入门教程。</li>
 <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程</a>：另一个浅显易懂的教程。</li>
 <li><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html">图解Git</a>：常用命令的工作原理，有助于透彻理解。</li>
-<li><a href="http://www.open-open.com/lib/view/open1328069609436.html">Git详解</a>：比较全面的介绍了Git的使用。本站有不少好文章。</li>
+<li><a href="http://www.open-open.com/lib/view/open1328069609436.html">Git详解</a>：比较全面的介绍了Git的使用。</li>
 <li><a href="http://git-scm.com/book/en/v2">Pro Git</a>：git官网上的书，覆盖全面，深入浅出，原理介绍得透彻。推荐通读。</li>
 <li><a href="http://gitbook.liuhui998.com/index.html">Git Community Book 中文版</a></li>
 </ol>
@@ -193,7 +200,7 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
 
 <p>Git鼓励大量使用分支开发，但是分支多了容易乱，我们使用一套比较成熟的分支管理方案git-flow，详情参见</p>
 
-<blockquote><p>使用git-flow.md</p></blockquote>
+<blockquote><p><a href="/blog/2015/11/17/use-git-flow/">使用git-flow</a></p></blockquote>
 ]]></content>
   </entry>
   

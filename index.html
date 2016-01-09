@@ -9,7 +9,7 @@
   <meta name="author" content="朱兴灿">
 
   
-  <meta name="description" content="多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格有几个、括号是否换行等等，也会不必要地浪费一些精力。于是不少公司会使用一些工具对代码进行自动格式化，比如 Dropbox、Parse。 在 iOS 工程中， &hellip;">
+  <meta name="description" content="看看它的官网介绍， The missing package manager for OS X 就知道它是用来干什么的了。Mac OS 没有提供软件包的管理器，不能像在 linux 上能使用 apt-get 自动从互联网的软件仓库中搜索、安装、升级、卸载软件。大神 Max Howell 就写了个 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,145 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">使用 ClangFormat 插件格式化 Objective-C 代码</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-01-09T17:11:11+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>5:11 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>看看它的<a href="http://brew.sh/">官网介绍</a>，</p>
+
+<blockquote><p><code>The missing package manager for OS X</code></p></blockquote>
+
+<p>就知道它是用来干什么的了。Mac OS 没有提供软件包的管理器，不能像在 linux 上能使用 apt-get 自动从互联网的软件仓库中搜索、安装、升级、卸载软件。大神 <a href="https://github.com/mxcl">Max Howell</a> 就写了个 brew 来干这件事。</p>
+
+<p>brew 项目在 github 上的地址是 <a href="https://github.com/Homebrew/homebrew">https://github.com/Homebrew/homebrew</a>，brew 本身及每个软件的版本更新维护都是在这里通过提 pr 的方式进行审核。</p>
+
+<h2>安装</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>brew 的工作细节</h2>
+
+<p>brew 安装在 <code>/usr/local</code> 目录下，可以在这个 <code>/usr/local/</code> 的 <code>bin/</code>、<code>Library/</code>、<code>share/</code> 三个目录下找到安装后的 brew 文件。比如，<code>/usr/local/bin/brew</code> 就是 brew 的可执行文件。具体每个brew的子命令都是一个个的 ruby 脚本，比如，<code>brew search</code> 就是 <code>/usr/local/Library/Homebrew/cmd/search.rb</code>。</p>
+
+<p>每个使用brew安装的软件都有一个对应的ruby脚本，我们称为 <code>Formula</code>，<code>brew install &lt;package_name&gt;</code>安装命令其实就是读取这个脚本里的配置，下载源码，然后运行配置里写好的安装命令。这些脚本放在 <code>/usr/local/Library/Formula</code> 下，使用 <code>brew update</code> 从github拉取最新版本的 brew 时，会在命令行运行结束后看到提示，哪些软件有版本更新和新增了哪些软件。</p>
+
+<p>软件下载下来之后，缓存在 <code>/Library/Caches/Homebrew</code> 目录中，你会在这个目录下发现一堆你下载过的软件包。如果你已安装某软件，然后用 <code>brew reinstall &lt;package_name&gt;</code> 重新安装该版本，就不需要重新下载了，它会直接使用已下载的软件进行安装。</p>
+
+<p>brew 大多是直接下载源码然后编译安装，安装命令如 <code>./configure &amp;&amp; make install</code>。并且，在安装本软件之前，会先安装脚本里指明的本项目的依赖库。</p>
+
+<p>软件安装的目录是<code>/usr/local/Cellar/&lt;package_name&gt;/&lt;version&gt;/</code>，比如 <code>/usr/local/Cellar/autojump/22.2.4/</code>。源码编译完成后，生成的文件都会放在这里。一般的软件可能会包含可执行文件、供其它库使用的头文件、运行库、文档等文件或目录，然后 brew 会把这些文件或目录分别软链接到 <code>/usr/local/bin/</code>、<code>/usr/local/include/</code>、<code>/usr/local/lib/</code>、<code>/usr/local/share/</code> 等目录下。</p>
+
+<p>如果你用 <code>brew upgrade &lt;package_name&gt;</code> 更新过几次该软件，你所有安装过的版本都会在 <code>/usr/local/Cellar/&lt;package_name&gt;/</code> 目录下找到。每次升级时，brew都是先把可执行文件等都编译到当前版本目录下，然后再软链接到<code>/usr/local</code>的各子文件夹下。这样，我们就会使用到最新版本了，因为 <code>/usr/local/bin</code> 目录是已经添加到环境变量里的。</p>
+
+<p>当然，所以你也可以使用 <code>brew swith</code> 来切换使用软件的某具体版本。比如，<code>brew swith autojump 22.1.4</code> 。</p>
+
+<p>时间久了，你的安装文件会越来越多，这时候清理不想用的旧版本会节省出来大量硬盘空间。<code>brew cleanup</code> 可以轻松达到此目的。如果你不想直接删掉，可以使用 <code>brew cleanup -n</code> 命令，它相当于预演一下，告诉你真正运行 <code>brew cleanup</code> 时会干些什么，而不会真正执行。检查完毕确定可以删除后，你再 <code>brew cleanup</code> 就安全多了。brew 的很多命令都支持 <code>-n</code> 参数，也就是 <code>--dry-run</code> 参数，这些就需要你自己去翻文档了。</p>
+
+<p>brew 还提供了很多其他命令，有需要的话自己 <code>man brew</code> 查看吧。</p>
+
+<h2>常用命令</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>brew search &lt;package_name&gt;      # 搜索
+</span><span class='line'>brew install &lt;package_name&gt;     # 安装一个软件
+</span><span class='line'>brew update                     # 从服务器上拉取，并更新本地 brew 的包目录
+</span><span class='line'>brew upgrade &lt;package_name&gt;     # 更新软件
+</span><span class='line'>brew outdated                   # 查看你的软件中哪些有新版本可用
+</span><span class='line'>brew cleanup                    # 清理老版本。使用 `-n` 参数，不会真正执行，只是打印出真正运行时会做什么。
+</span><span class='line'>brew list --versions            # 查看你安装过的包列表（包括版本号）
+</span><span class='line'>brew link &lt;package_name&gt;        # 将软件的当前最新版本软链到`/usr/local`目录下
+</span><span class='line'>brew unlink &lt;package_name&gt;      # 将软件在`/usr/local`目录下的软链接删除。
+</span><span class='line'>brew info                       # 显示软件的信息 
+</span><span class='line'>brew deps                       # 显示包依赖</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>brew 的子软件包</h2>
+
+<p>我们常用的其实是 brew 的主包，里有着常用的一些软件，比如 <code>erlang</code>、<code>cloc</code>、<code>cmake</code>、<code>tree</code>等。但还有些软件比如科学计算相关的，并不是很常用，数量又很多，就会根据类型单独分到一个子软件包里。在安装 brew 的时候，并不会将这些软件的 <code>Formula</code> 下载到本地，要想使用的话，应该先安装该子软件包。</p>
+
+<p>比如 opencv 在 science 子软件包里，安装的时候需要先使用命令 <code>brew tap homebrew/science</code> 将 <code>science</code> 子软件包下载下来，然后再 <code>brew install opencv</code>。或者你也可以直接指明软件所在的子包，通过 <code>brew install homebrew/science/opencv</code> 命令来安装，这个命令会先 <code>tap</code> 该子软件包，再安装软件。<code>homebrw/science</code> 项目的 github 地址是：<a href="https://github.com/Homebrew/homebrew-science">https://github.com/Homebrew/homebrew-science</a>，tap下来的 science 的 <code>Formula</code> 放在 <code>/usr/local/Library/Taps/homebrew/homebrew-science</code> 目录下。</p>
+
+<p>你可以在 github 上看到 brew 的其它子软件包：<a href="https://github.com/Homebrew">https://github.com/Homebrew</a>，比如 <code>homebrew-games</code>、<code>homebrew-emacs</code> 等。</p>
+
+<h2>使用 brew cask</h2>
+
+<p>brew 会对依赖的软件也进行安装，并且配置环境，再复杂的安装也就是一条命令而已，这对需要安装各种运行环境的程序员来说，简直是天大的福音。但 brew 是通过下载源码的方式进行安装的，alfred、dropbox、chrome 等软件能使用 brew 直接安装软件么？答案是可以的，有工具 brew cask。</p>
+
+<p>官网地址：<a href="http://caskroom.io/">caskroom.io</a></p>
+
+<p>github地址：<a href="https://github.com/caskroom/homebrew-cask">brew cask</a></p>
+
+<p>它扩展了 brew，以优雅、简单、快速地安装和管理 OS X 图形界面程序为己任，目前已收集了 2941 个常用软件，并有 433 个维护人员。</p>
+
+<pre><code>brew tap caskroom/cask              # 添加 github 上的 caskroom/cask 库
+brew install brew-cask              # 安装 brew-cask
+brew cask install google-chrome     # 安装 chrome 浏览器
+brew update &amp;&amp; brew upgrade brew-cask &amp;&amp; brew cleanup # 更新
+brew search &lt;package_name&gt;          # 搜索想要的软件。
+</code></pre>
+
+<p>brew cask装的软件会放到 <code>/opt/homebrew-cask/Caskroom</code> 下面，然后软链接到 <code>~/Applications</code>。 跟我们手动安装软件的默认位置 <code>/Applications</code> 不一样。</p>
+
+<p>一些我安装的软件：alfred appcleaner cheatsheet chrome dropbox haskell-platform launchrocket onepassword totalfinder</p>
+
+<h3>通过 brew cask 安装 Finder 的文件预览插件</h3>
+
+<p>我们可以在 Finder 里选中某个文件后，敲一下空格键，Finder 会弹出一个这个文件的预览窗口，这会让我们直接看到这个文件的内容，而不用打开关闭该文件，在是个非常实用的功能。如果你的 Finder 像我一样始终是以<code>分栏</code>的方式显示的话，在选中文件后，Finder 右侧会直接显示改文件内容，那就更方便了。</p>
+
+<p>但是，支持预览的文件格式只有系统默认的一些如图片、pdf等，还有很多格式的软件，如 json、xml、markdown、html等，我们是不能通过 Finder 的文件预览来查看的。</p>
+
+<p>所以，强烈推荐装一些<a href="https://github.com/sindresorhus/quick-look-plugins">插件</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>其它</h3>
+
+<p>如果你经常使用 Alfred 启动程序，那么你会想 Alfred 可以搜索 brew cask 安装的程序，实现这些仅需运行：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>brew cask alfred link</span></code></pre></td></tr></table></div></figure>
+
+
+<p>此外，你还可以通过 brew cask 安装 <a href="https://github.com/jimbojsb/launchrocket">launchrocket</a>，来管理通过 brew 安装的 service。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">用 ClangFormat 插件格式化 Objective-C 代码</a></h1>
     
     
       <p class="meta">
@@ -187,7 +325,7 @@ killall Finder
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/11/17/use-git-flow/">新手入门之使用 Git-flow 做分支管理</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/11/17/use-git-flow/">用 Git-flow 做分支管理</a></h1>
     
     
       <p class="meta">
@@ -205,14 +343,16 @@ killall Finder
 
   <div class="entry-content"><h2>关于git-flow</h2>
 
-<p>git鼓励我们多开分支，但是没有一套模型告诉我们如何管理分支，有人总结了一条最佳实践惯例：git-flow，并且提供了一套<a href="https://github.com/nvie/gitflow">git-flow工具</a>来方便我们实践它。</p>
+<p>git 鼓励我们多开分支，但是没有一套模型告诉我们如何管理分支，有人总结了一条最佳实践惯例：git-flow，并且提供了一套 <a href="https://github.com/nvie/gitflow">git-flow工具</a>来方便我们实践它。该工具的每个命令都能实现数个 git 命令才能实现的功能，使用起来还是比较方便的。</p>
 
 <p><a href="http://ihower.tw/blog/archives/5140">Git flow 開發流程</a>这篇文章介绍了git-flow的入门使用方式。</p>
 
-<p>git-flow创始人写的关于git-flow的文章：<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>。里面详细描述了git-flow的工作方式。这儿有两篇不错的中文翻译： <a href="http://www.uml.org.cn/pzgl/201301065.asp">Git开发管理之道</a>，<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/">一个成功的Git分支模型</a> 。</p>
+<p>git-flow 创始人写的关于 git-flow 的文章：<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>。里面详细描述了 git-flow 的工作方式。这儿有两篇不错的中文翻译： <a href="http://www.uml.org.cn/pzgl/201301065.asp">Git开发管理之道</a>，<a href="http://www.juvenxu.com/2010/11/28/a-successful-git-branching-model/">一个成功的Git分支模型</a> 。</p>
 
-<p>git-flow的<a href="http://danielkummer.github.io/git-flow-cheatsheet/">cheatsheet</a>，该网页有中文版，翻译得不咋地。里面列出了常用的命令。
+<p>git-flow的<a href="http://danielkummer.github.io/git-flow-cheatsheet/">cheatsheet</a>，里面列出了常用的命令：
 <img src="http://danielkummer.github.io/git-flow-cheatsheet/img/git-flow-commands.png" alt="cheatSheet" /></p>
+
+<p>该网页比较直观地展示出每个 git-flow 命令实际都做了哪些操作，值得一看。还提供了中文版，翻译得不咋地。</p>
 
 <h2>安装</h2>
 
@@ -335,7 +475,7 @@ release分支里的东西会自动合并到master和develop里。</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/11/17/use-git/">新手入门之使用Git</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/11/17/use-git/">用 Git 做版本控制</a></h1>
     
     
       <p class="meta">
@@ -369,30 +509,43 @@ release分支里的东西会自动合并到master和develop里。</p>
 </ol>
 
 
-<p>参见：
-+ <a href="http://boliquan.com/bitbucket-method-of-use/">Bitbucket使用方法</a>
-+ <a href="http://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Set up SSH for Git</a></p>
+<p>参见：</p>
+
+<ul>
+<li><a href="http://boliquan.com/bitbucket-method-of-use/">Bitbucket使用方法</a></li>
+<li><a href="http://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Set up SSH for Git</a></li>
+</ul>
+
 
 <h2>试用一下</h2>
 
-<p>配置完成之后自己新建个工程传到bitbucket上去，并且试用一下其基本功能。
-我们最常用的就是下面这几个命令</p>
+<p>配置完成之后自己新建个工程传到bitbucket上去，并且试用一下其基本功能。</p>
 
-<pre><code>git add .       #如果有新添加的文件，将这些文件添加到本地版本库
-git commit -am "changed something"      #然后将代码提交到本地代码库
-git pull origin develop     #把服务器代码库上develop分支的最新代码拉下来，自动合并到本地代码库的develop分支
-……      #如果有冲突，修改冲突代码，然后再次commit
-git push origin develop     #将本地develop分支的代码提交到服务器的develop分支
-</code></pre>
+<p>我们最常用的就是下面这几个命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git add .                          # 如果有新添加的文件，将这些文件添加到本地版本库
+</span><span class='line'>git commit -am "changed something" # 然后将代码提交到本地代码库
+</span><span class='line'>git pull origin develop            # 把服务器代码库上develop分支的最新代码拉下来，自动合并到本地代码库的develop分支
+</span><span class='line'>……                                 # 如果有冲突，修改冲突代码，然后再次commit
+</span><span class='line'>git push origin develop            # 将本地develop分支的代码提交到服务器的develop分支</span></code></pre></td></tr></table></div></figure>
+
 
 <p>有了上面这四个，基本的功能就可以实现了。</p>
 
 <p>从服务器上拉下最新代码之前，如果不想提交当前代码，可以这样：</p>
 
-<pre><code>git stash       #将当前工程暂存
-git pull origin develop     #更新远程服务器上的代码到本地
-git stash pop   #弹出刚才暂存的当前工程，合并代码
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git stash       #将当前工程暂存
+</span><span class='line'>git pull origin develop     #更新远程服务器上的代码到本地
+</span><span class='line'>git stash pop   #弹出刚才暂存的当前工程，合并代码</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>推荐教程</h2>
 
@@ -400,7 +553,7 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
 <li><a href="http://sites.google.com/site/nanjunjie/download/Git_Magic_CN.pdf">Git Magit</a>：很简单很优秀的一个入门教程。</li>
 <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程</a>：另一个浅显易懂的教程。</li>
 <li><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html">图解Git</a>：常用命令的工作原理，有助于透彻理解。</li>
-<li><a href="http://www.open-open.com/lib/view/open1328069609436.html">Git详解</a>：比较全面的介绍了Git的使用。本站有不少好文章。</li>
+<li><a href="http://www.open-open.com/lib/view/open1328069609436.html">Git详解</a>：比较全面的介绍了Git的使用。</li>
 <li><a href="http://git-scm.com/book/en/v2">Pro Git</a>：git官网上的书，覆盖全面，深入浅出，原理介绍得透彻。推荐通读。</li>
 <li><a href="http://gitbook.liuhui998.com/index.html">Git Community Book 中文版</a></li>
 </ol>
@@ -410,7 +563,7 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
 
 <p>Git鼓励大量使用分支开发，但是分支多了容易乱，我们使用一套比较成熟的分支管理方案git-flow，详情参见</p>
 
-<blockquote><p>使用git-flow.md</p></blockquote>
+<blockquote><p><a href="/blog/2015/11/17/use-git-flow/">使用git-flow</a></p></blockquote>
 </div>
   
   
@@ -443,14 +596,19 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
 
 <ol>
 <li><p>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</p></li>
-<li><p>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令</p>
+<li><p>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令</p></li>
+</ol>
 
-<pre><code> curl -L http://install.ohmyz.sh | sh
-</code></pre>
 
-<p> 具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></p></li>
-<li><p>SourceTree ：git的图形化操作工具。</p></li>
-<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见『使用brew.md』</li>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -L http://install.ohmyz.sh | sh</span></code></pre></td></tr></table></div></figure>
+
+
+<p>具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></p>
+
+<ol>
+<li>SourceTree ：git的图形化操作工具。</li>
+<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见<a href="/blog/2016/01/09/use-brew/">使用brew.md</a></li>
 <li>Alfred ：自定义各种快捷操作，神器。</li>
 <li>Moom ：快速设置窗口的位置及大小，全键盘流的福音。</li>
 <li>Parallel Desktop ：想安装个虚拟机就用它吧，无缝连接系统，牛叉无比。</li>
@@ -487,7 +645,7 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/11/17/to-ios-fresh-man/">iOS新人入门文档</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/11/17/to-ios-fresh-man/">iOS新人入门文档目录</a></h1>
     
     
       <p class="meta">
@@ -505,37 +663,40 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
 
   <div class="entry-content"><h2>软件推荐</h2>
 
-<p>参见：Mac下推荐的软件.md</p>
+<ul>
+<li><a href="/blog/2015/11/17/recommend-some-mac-os-software/">Mac下推荐的软件</a></li>
+<li><a href="/blog/2016/01/09/use-brew/">用 brew 安装管理软件</a></li>
+</ul>
 
-<h2>版本控制系统：Git</h2>
 
-<p>参见：使用Git.md</p>
+<h2>版本控制：Git 及 git-flow</h2>
 
-<h3>分支管理方案：git-flow</h3>
+<ul>
+<li><a href="/blog/2015/11/17/use-git/">用 Git 做版本控制</a></li>
+<li><a href="/blog/2015/11/17/use-git-flow/">用 git-flow 做分支管理</a></li>
+</ul>
 
-<p>参见：使用git-flow.md</p>
 
 <h2>iOS技术</h2>
 
 <h3>开发工具</h3>
 
 <ul>
-<li>sourceTree或者git命令行的使用。</li>
-<li>CocoaPods的使用。
-参见：<a href="http://blog.devtang.com/blog/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/">用CocoaPods做iOS程序的依赖管理</a></li>
-<li>Xcode及Instruments的使用。编译、调试、调优等手段。</li>
+<li>CocoaPods 的使用。
+参见唐巧的<a href="http://blog.devtang.com/blog/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/">用CocoaPods做iOS程序的依赖管理</a></li>
+<li>Xcode 及 Instruments 的使用。编译、调试、调优等手段。</li>
 </ul>
 
 
 <h3>开发技术</h3>
 
 <ul>
-<li>研究ARC的相关技术及使用。熟悉weak，strong等关键字的使用。</li>
-<li>研究block的使用，理解内存的循环引用。</li>
-<li>熟悉StoryBoard及Xib的使用。</li>
-<li>全面认识UIView及UIViewController的各属性功能类的函数功能。</li>
-<li>透彻理解MVC。了解常用设计模式。</li>
-<li>了解UIView动画及Core Animation的主要功能。</li>
+<li>研究ARC的相关技术及使用。熟悉 weak，strong 等关键字的使用。</li>
+<li>研究 block 的使用，理解内存的循环引用。</li>
+<li>熟悉 StoryBoard 及 Xib 的使用。</li>
+<li>全面认识 UIView 及 UIViewController 的各属性功能类的函数功能。</li>
+<li>透彻理解 MVC。了解常用设计模式。</li>
+<li>了解 UIView 动画及 Core Animation 的主要知识点。</li>
 <li>研究线程安全，了解系统类中哪些是线程安全的，了解如何写一个线程安全类。</li>
 </ul>
 
@@ -559,23 +720,23 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">使用 ClangFormat 插件格式化 Objective-C 代码</a>
+        <a href="/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/11/17/use-git-flow/">新手入门之使用 Git-flow 做分支管理</a>
+        <a href="/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">用 ClangFormat 插件格式化 Objective-C 代码</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/11/17/use-git/">新手入门之使用Git</a>
+        <a href="/blog/2015/11/17/use-git-flow/">用 Git-flow 做分支管理</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/11/17/use-git/">用 Git 做版本控制</a>
       </li>
     
       <li class="post">
         <a href="/blog/2015/11/17/recommend-some-mac-os-software/">Mac下推荐的软件</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/11/17/to-ios-fresh-man/">iOS新人入门文档</a>
       </li>
     
   </ul>
