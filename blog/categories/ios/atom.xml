@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ios | Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-09T18:36:47+08:00</updated>
+  <updated>2016-01-09T19:01:53+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -121,6 +121,13 @@ killall Finder
 <ul>
 <li><a href="/blog/2015/11/17/use-git/">用 Git 做版本控制</a></li>
 <li><a href="/blog/2015/11/17/use-git-flow/">用 Git-flow 做分支管理</a></li>
+</ul>
+
+
+<h2>代码风格</h2>
+
+<ul>
+<li><a href="/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">用 ClangFormat 插件格式化 Objective-C 代码</a></li>
 </ul>
 
 
