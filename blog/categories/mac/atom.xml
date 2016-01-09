@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mac | Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/blog/categories/mac/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-09T17:52:21+08:00</updated>
+  <updated>2016-01-09T18:09:34+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -14,46 +14,37 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Mac下推荐的软件]]></title>
+    <title type="html"><![CDATA[Mac 下推荐的软件]]></title>
     <link href="http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software/"/>
     <updated>2015-11-17T20:05:03+08:00</updated>
     <id>http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software</id>
-    <content type="html"><![CDATA[<p>传说中，Mac电脑是程序员专用的“飞机中的战斗机”，baidu一下“mac软件推荐”，你会得到很多优秀的工具。下面是我常用的几款，具体安装及使用方式不细说。</p>
+    <content type="html"><![CDATA[<p>传说中，Mac 电脑是程序员专用的“飞机中的战斗机”，baidu 一下 “mac 软件推荐”，你会得到很多优秀的工具。下面是我常用的几款，具体安装及使用方式不细说。</p>
 
 <ol>
-<li><p>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</p></li>
-<li><p>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令</p></li>
-</ol>
-
-
-<pre><code>curl -L http://install.ohmyz.sh | sh
-</code></pre>
-
-<p>具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></p>
-
-<ol>
+<li>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</li>
+<li>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令：<code>curl -L http://install.ohmyz.sh | sh</code>，具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></li>
 <li>SourceTree ：git的图形化操作工具。</li>
-<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见<a href="/blog/2016/01/09/use-brew/">使用brew.md</a></li>
+<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见<a href="/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a></li>
 <li>Alfred ：自定义各种快捷操作，神器。</li>
 <li>Moom ：快速设置窗口的位置及大小，全键盘流的福音。</li>
 <li>Parallel Desktop ：想安装个虚拟机就用它吧，无缝连接系统，牛叉无比。</li>
 <li>RescueTime ：关注你每天时间的使用，提高工作效率。</li>
 <li>Charles ：抓包工具，可给真机做代理，可模拟网络不好的情况。</li>
-<li>Mou ：写markdown文档。比如这篇。</li>
-<li>Sublime Text ：你永远都不会知道这个看起来像个简单文本编辑器的编辑器有多牛逼。<a href="https://sublime.wbond.net/">一堆堆的插件</a>。比如写markdown想生成、更新目录，可以装个MarkdownTOC。支持Dash集成。</li>
-<li>iTools ：不越狱查看真机app里的个各种文件。</li>
-<li>XtraFinder ：增强Finder功能。</li>
-<li><a href="http://www.grandtotal.biz/CheatSheet/">cheatSheat</a>：长按 command ，将能查看当前程序的快捷键，好用到爆。</li>
-<li><a href="http://www.sequelpro.com/download">Sequel Pro</a>：mysql，远端、本地数据库连接，方便易用</li>
-<li><a href="http://www.freemacsoft.net/appcleaner/">AppCleaner</a>：应用程序卸载工具</li>
+<li>Sublime Text ：你永远都不会知道这个看起来像个简单文本编辑器的编辑器有多牛逼。<a href="https://sublime.wbond.net/">一堆堆的插件</a>。支持 Dash 集成。</li>
+<li>Mou ：写 markdown 文档，编辑时同步预览比较方便。但是最新版在编写大文件时会比较卡。我现在用 Sublime 装上<code>Markdown Extended</code>、<code>Markdown Preview</code>、<code>MarkdownEditing</code>、<code>MarkdownTOC</code>这几个插件，编辑预览什么的，也很方便。</li>
+<li>iTools ：不越狱查看真机 app 里的个各种文件。</li>
+<li>XtraFinder ：增强 Finder 功能。</li>
+<li><a href="http://www.grandtotal.biz/CheatSheet/">cheatSheat</a>：长按 command 查看当前程序的所有快捷键，好用到爆。</li>
+<li><a href="http://www.sequelpro.com/download">Sequel Pro</a>：连接远端、本地 mysql，方便易用。</li>
+<li><a href="http://www.freemacsoft.net/appcleaner/">AppCleaner</a>：应用程序卸载工具。</li>
 </ol>
 
 
 <p>另外的几个相关推荐帖子：</p>
 
 <ul>
-<li><a href="http://www.cocoachina.com/mac/20141112/10198.html">Mac 开发配置手册</a> 本文翻译自<a href="https://github.com/sb2nov/mac-setup">mac-setup</a>，原文不断更新，且有很多其他内容。</li>
-<li><a href="https://github.com/hzlzh/Best-App">Best-App</a> 收集&amp;推荐优秀的 Apps/硬件/技巧/周边等</li>
+<li><a href="http://www.cocoachina.com/mac/20141112/10198.html">Mac 开发配置手册</a> 本文翻译自 <a href="https://github.com/sb2nov/mac-setup">mac-setup</a>，原文不断更新，且有很多其他内容。</li>
+<li><a href="https://github.com/hzlzh/Best-App">Best-App</a> 收集 &amp; 推荐优秀的 Apps/硬件/技巧/周边等</li>
 <li><a href="http://www.xialeizhou.com/?p=71">高效 MacBook 工作环境配置</a></li>
 <li><a href="https://support.apple.com/zh-cn/HT201236">MacBook 快捷键</a></li>
 </ul>

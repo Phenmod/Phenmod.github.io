@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-09T17:52:21+08:00</updated>
+  <updated>2016-01-09T18:09:34+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -148,49 +148,49 @@ git flow support start &lt;release&gt; &lt;base&gt;
 <h3>为git设置ssh</h3>
 
 <ol>
-<li>运行命令：ssh-keygen ，会让输入名称什么的，直接回车三次即可。运行命令后，出现~/.ssh文件夹，里面有两个文件，分别为RSA的公钥和私钥，将公钥文件id_rsa.pub里的内容copy出来。</li>
-<li>当前我们的代码托管在bitbucket.org上，需要你注册一个bitbucket.org账号。</li>
-<li>进入bitbucket的个人账户管理页面，找到"SSH Keys"，点击"Add key"，将第一步中id_rsa.pub里的内容粘贴进去。~/.ssh中会出现第三个文件kown_hosts。</li>
+<li>运行命令：ssh-keygen ，会让输入名称什么的，直接回车三次即可。运行命令后，出现 ~/.ssh 文件夹，里面有两个文件，分别为 RSA 的公钥和私钥，将公钥文件 id_rsa.pub 里的内容拷贝出来。</li>
+<li>当前我们的代码托管在 bitbucket.org 上，需要你注册一个bitbucket.org账号。</li>
+<li>进入 bitbucket 的个人账户管理页面，找到 &ldquo;SSH Keys"，点击 "Add key"，将第一步中 id_rsa.pub 里的内容粘贴进去。</li>
 </ol>
 
 
 <p>参见：</p>
 
 <ul>
-<li><a href="http://boliquan.com/bitbucket-method-of-use/">Bitbucket使用方法</a></li>
+<li><a href="http://boliquan.com/bitbucket-method-of-use/">Bitbucket 使用方法</a></li>
 <li><a href="http://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Set up SSH for Git</a></li>
 </ul>
 
 
 <h2>试用一下</h2>
 
-<p>配置完成之后自己新建个工程传到bitbucket上去，并且试用一下其基本功能。</p>
+<p>配置完成之后自己新建个工程传到 bitbucket 上去，并且试用一下其基本功能。</p>
 
 <p>我们最常用的就是下面这几个命令：
 <code>
 git add .                          # 如果有新添加的文件，将这些文件添加到本地版本库
 git commit -am "changed something" # 然后将代码提交到本地代码库
-git pull origin develop            # 把服务器代码库上develop分支的最新代码拉下来，自动合并到本地代码库的develop分支
-……                                 # 如果有冲突，修改冲突代码，然后再次commit
-git push origin develop            # 将本地develop分支的代码提交到服务器的develop分支
+git pull origin develop            # 把服务器代码库上 develop 分支的最新代码拉下来，自动合并到本地代码库的 develop 分支
+……                                 # 如果有冲突，修改冲突代码，然后再次 commit
+git push origin develop            # 将本地develop分支的代码提交到服务器的 develop 分支
 </code></p>
 
 <p>有了上面这四个，基本的功能就可以实现了。</p>
 
 <p>从服务器上拉下最新代码之前，如果不想提交当前代码，可以这样：
 <code>
-git stash       #将当前工程暂存
+git stash                   #将当前工程暂存
 git pull origin develop     #更新远程服务器上的代码到本地
-git stash pop   #弹出刚才暂存的当前工程，合并代码
+git stash pop               #弹出刚才暂存的当前工程，合并代码
 </code></p>
 
 <h2>推荐教程</h2>
 
 <ol>
 <li><a href="http://sites.google.com/site/nanjunjie/download/Git_Magic_CN.pdf">Git Magit</a>：很简单很优秀的一个入门教程。</li>
-<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程</a>：另一个浅显易懂的教程。</li>
-<li><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html">图解Git</a>：常用命令的工作原理，有助于透彻理解。</li>
-<li><a href="http://www.open-open.com/lib/view/open1328069609436.html">Git详解</a>：比较全面的介绍了Git的使用。</li>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git 教程</a>：另一个浅显易懂的教程。</li>
+<li><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html">图解 Git</a>：常用命令的工作原理，有助于透彻理解。</li>
+<li><a href="http://www.open-open.com/lib/view/open1328069609436.html">Git 详解</a>：比较全面的介绍了Git的使用。</li>
 <li><a href="http://git-scm.com/book/en/v2">Pro Git</a>：git官网上的书，覆盖全面，深入浅出，原理介绍得透彻。推荐通读。</li>
 <li><a href="http://gitbook.liuhui998.com/index.html">Git Community Book 中文版</a></li>
 </ol>
@@ -198,9 +198,9 @@ git stash pop   #弹出刚才暂存的当前工程，合并代码
 
 <h2>分支管理方案</h2>
 
-<p>Git鼓励大量使用分支开发，但是分支多了容易乱，我们使用一套比较成熟的分支管理方案git-flow，详情参见</p>
+<p>Git 鼓励大量使用分支开发，但是分支多了容易乱，我们使用一套比较成熟的分支管理方案 git-flow，详情参见</p>
 
-<blockquote><p><a href="/blog/2015/11/17/use-git-flow/">使用git-flow</a></p></blockquote>
+<blockquote><p><a href="/blog/2015/11/17/use-git-flow/">使用 Git-flow</a></p></blockquote>
 ]]></content>
   </entry>
   

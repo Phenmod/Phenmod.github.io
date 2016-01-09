@@ -4,7 +4,7 @@
   <title><![CDATA[Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.github.io/atom.xml" rel="self"/>
   <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-09T17:52:21+08:00</updated>
+  <updated>2016-01-09T18:09:34+08:00</updated>
   <id>http://phenmod.github.io/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -216,13 +216,13 @@ killall Finder
 </span><span class='line'>// =================================================================================================</span></code></pre></td></tr></table></div></figure>
 
 
-<p>用它定义个code snippet，来个快捷键(我的是pm)，省心啊。</p>
+<p>用它定义个<code>code snippet</code>，来个快捷键(我的是pm)，省心啊。</p>
 
 <h2>关于每行字符限制</h2>
 
-<p>如果你把上面的pragma段拷贝到xcode，会发现上面那一串等号会终止在第100列。没错，我们现在每行字符数限制就是100。</p>
+<p>如果你把上面的 pragma 段拷贝到 xcode，会发现上面那一串等号会终止在第 100 列。没错，我们现在每行字符数限制就是 100。</p>
 
-<p>其实我很想定义到120，但是在某些同学的macbook air的小屏幕上不太够显示。</p>
+<p>其实我很想定义到 120，但是在某些同学的 macbook air 的小屏幕上不太够显示。</p>
 ]]></content>
   </entry>
   
@@ -373,23 +373,23 @@ release分支里的东西会自动合并到master和develop里。</p>
 <h3>为git设置ssh</h3>
 
 <ol>
-<li>运行命令：ssh-keygen ，会让输入名称什么的，直接回车三次即可。运行命令后，出现~/.ssh文件夹，里面有两个文件，分别为RSA的公钥和私钥，将公钥文件id_rsa.pub里的内容copy出来。</li>
-<li>当前我们的代码托管在bitbucket.org上，需要你注册一个bitbucket.org账号。</li>
-<li>进入bitbucket的个人账户管理页面，找到"SSH Keys"，点击"Add key"，将第一步中id_rsa.pub里的内容粘贴进去。~/.ssh中会出现第三个文件kown_hosts。</li>
+<li>运行命令：ssh-keygen ，会让输入名称什么的，直接回车三次即可。运行命令后，出现 ~/.ssh 文件夹，里面有两个文件，分别为 RSA 的公钥和私钥，将公钥文件 id_rsa.pub 里的内容拷贝出来。</li>
+<li>当前我们的代码托管在 bitbucket.org 上，需要你注册一个bitbucket.org账号。</li>
+<li>进入 bitbucket 的个人账户管理页面，找到 &ldquo;SSH Keys"，点击 "Add key"，将第一步中 id_rsa.pub 里的内容粘贴进去。</li>
 </ol>
 
 
 <p>参见：</p>
 
 <ul>
-<li><a href="http://boliquan.com/bitbucket-method-of-use/">Bitbucket使用方法</a></li>
+<li><a href="http://boliquan.com/bitbucket-method-of-use/">Bitbucket 使用方法</a></li>
 <li><a href="http://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Set up SSH for Git</a></li>
 </ul>
 
 
 <h2>试用一下</h2>
 
-<p>配置完成之后自己新建个工程传到bitbucket上去，并且试用一下其基本功能。</p>
+<p>配置完成之后自己新建个工程传到 bitbucket 上去，并且试用一下其基本功能。</p>
 
 <p>我们最常用的就是下面这几个命令：</p>
 
@@ -400,9 +400,9 @@ release分支里的东西会自动合并到master和develop里。</p>
 <span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>git add .                          # 如果有新添加的文件，将这些文件添加到本地版本库
 </span><span class='line'>git commit -am "changed something" # 然后将代码提交到本地代码库
-</span><span class='line'>git pull origin develop            # 把服务器代码库上develop分支的最新代码拉下来，自动合并到本地代码库的develop分支
-</span><span class='line'>……                                 # 如果有冲突，修改冲突代码，然后再次commit
-</span><span class='line'>git push origin develop            # 将本地develop分支的代码提交到服务器的develop分支</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>git pull origin develop            # 把服务器代码库上 develop 分支的最新代码拉下来，自动合并到本地代码库的 develop 分支
+</span><span class='line'>……                                 # 如果有冲突，修改冲突代码，然后再次 commit
+</span><span class='line'>git push origin develop            # 将本地develop分支的代码提交到服务器的 develop 分支</span></code></pre></td></tr></table></div></figure>
 
 
 <p>有了上面这四个，基本的功能就可以实现了。</p>
@@ -412,18 +412,18 @@ release分支里的东西会自动合并到master和develop里。</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git stash       #将当前工程暂存
+</pre></td><td class='code'><pre><code class=''><span class='line'>git stash                   #将当前工程暂存
 </span><span class='line'>git pull origin develop     #更新远程服务器上的代码到本地
-</span><span class='line'>git stash pop   #弹出刚才暂存的当前工程，合并代码</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>git stash pop               #弹出刚才暂存的当前工程，合并代码</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>推荐教程</h2>
 
 <ol>
 <li><a href="http://sites.google.com/site/nanjunjie/download/Git_Magic_CN.pdf">Git Magit</a>：很简单很优秀的一个入门教程。</li>
-<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程</a>：另一个浅显易懂的教程。</li>
-<li><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html">图解Git</a>：常用命令的工作原理，有助于透彻理解。</li>
-<li><a href="http://www.open-open.com/lib/view/open1328069609436.html">Git详解</a>：比较全面的介绍了Git的使用。</li>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git 教程</a>：另一个浅显易懂的教程。</li>
+<li><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html">图解 Git</a>：常用命令的工作原理，有助于透彻理解。</li>
+<li><a href="http://www.open-open.com/lib/view/open1328069609436.html">Git 详解</a>：比较全面的介绍了Git的使用。</li>
 <li><a href="http://git-scm.com/book/en/v2">Pro Git</a>：git官网上的书，覆盖全面，深入浅出，原理介绍得透彻。推荐通读。</li>
 <li><a href="http://gitbook.liuhui998.com/index.html">Git Community Book 中文版</a></li>
 </ol>
@@ -431,54 +431,44 @@ release分支里的东西会自动合并到master和develop里。</p>
 
 <h2>分支管理方案</h2>
 
-<p>Git鼓励大量使用分支开发，但是分支多了容易乱，我们使用一套比较成熟的分支管理方案git-flow，详情参见</p>
+<p>Git 鼓励大量使用分支开发，但是分支多了容易乱，我们使用一套比较成熟的分支管理方案 git-flow，详情参见</p>
 
-<blockquote><p><a href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/">使用git-flow</a></p></blockquote>
+<blockquote><p><a href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/">使用 Git-flow</a></p></blockquote>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Mac下推荐的软件]]></title>
+    <title type="html"><![CDATA[Mac 下推荐的软件]]></title>
     <link href="http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software/"/>
     <updated>2015-11-17T20:05:03+08:00</updated>
     <id>http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software</id>
-    <content type="html"><![CDATA[<p>传说中，Mac电脑是程序员专用的“飞机中的战斗机”，baidu一下“mac软件推荐”，你会得到很多优秀的工具。下面是我常用的几款，具体安装及使用方式不细说。</p>
+    <content type="html"><![CDATA[<p>传说中，Mac 电脑是程序员专用的“飞机中的战斗机”，baidu 一下 “mac 软件推荐”，你会得到很多优秀的工具。下面是我常用的几款，具体安装及使用方式不细说。</p>
 
 <ol>
-<li><p>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</p></li>
-<li><p>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令</p></li>
-</ol>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl -L http://install.ohmyz.sh | sh</span></code></pre></td></tr></table></div></figure>
-
-
-<p>具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></p>
-
-<ol>
+<li>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</li>
+<li>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令：<code>curl -L http://install.ohmyz.sh | sh</code>，具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></li>
 <li>SourceTree ：git的图形化操作工具。</li>
-<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见<a href="http://phenmod.github.io/blog/2016/01/09/use-brew/">使用brew.md</a></li>
+<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见<a href="http://phenmod.github.io/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a></li>
 <li>Alfred ：自定义各种快捷操作，神器。</li>
 <li>Moom ：快速设置窗口的位置及大小，全键盘流的福音。</li>
 <li>Parallel Desktop ：想安装个虚拟机就用它吧，无缝连接系统，牛叉无比。</li>
 <li>RescueTime ：关注你每天时间的使用，提高工作效率。</li>
 <li>Charles ：抓包工具，可给真机做代理，可模拟网络不好的情况。</li>
-<li>Mou ：写markdown文档。比如这篇。</li>
-<li>Sublime Text ：你永远都不会知道这个看起来像个简单文本编辑器的编辑器有多牛逼。<a href="https://sublime.wbond.net/">一堆堆的插件</a>。比如写markdown想生成、更新目录，可以装个MarkdownTOC。支持Dash集成。</li>
-<li>iTools ：不越狱查看真机app里的个各种文件。</li>
-<li>XtraFinder ：增强Finder功能。</li>
-<li><a href="http://www.grandtotal.biz/CheatSheet/">cheatSheat</a>：长按 command ，将能查看当前程序的快捷键，好用到爆。</li>
-<li><a href="http://www.sequelpro.com/download">Sequel Pro</a>：mysql，远端、本地数据库连接，方便易用</li>
-<li><a href="http://www.freemacsoft.net/appcleaner/">AppCleaner</a>：应用程序卸载工具</li>
+<li>Sublime Text ：你永远都不会知道这个看起来像个简单文本编辑器的编辑器有多牛逼。<a href="https://sublime.wbond.net/">一堆堆的插件</a>。支持 Dash 集成。</li>
+<li>Mou ：写 markdown 文档，编辑时同步预览比较方便。但是最新版在编写大文件时会比较卡。我现在用 Sublime 装上<code>Markdown Extended</code>、<code>Markdown Preview</code>、<code>MarkdownEditing</code>、<code>MarkdownTOC</code>这几个插件，编辑预览什么的，也很方便。</li>
+<li>iTools ：不越狱查看真机 app 里的个各种文件。</li>
+<li>XtraFinder ：增强 Finder 功能。</li>
+<li><a href="http://www.grandtotal.biz/CheatSheet/">cheatSheat</a>：长按 command 查看当前程序的所有快捷键，好用到爆。</li>
+<li><a href="http://www.sequelpro.com/download">Sequel Pro</a>：连接远端、本地 mysql，方便易用。</li>
+<li><a href="http://www.freemacsoft.net/appcleaner/">AppCleaner</a>：应用程序卸载工具。</li>
 </ol>
 
 
 <p>另外的几个相关推荐帖子：</p>
 
 <ul>
-<li><a href="http://www.cocoachina.com/mac/20141112/10198.html">Mac 开发配置手册</a> 本文翻译自<a href="https://github.com/sb2nov/mac-setup">mac-setup</a>，原文不断更新，且有很多其他内容。</li>
-<li><a href="https://github.com/hzlzh/Best-App">Best-App</a> 收集&amp;推荐优秀的 Apps/硬件/技巧/周边等</li>
+<li><a href="http://www.cocoachina.com/mac/20141112/10198.html">Mac 开发配置手册</a> 本文翻译自 <a href="https://github.com/sb2nov/mac-setup">mac-setup</a>，原文不断更新，且有很多其他内容。</li>
+<li><a href="https://github.com/hzlzh/Best-App">Best-App</a> 收集 &amp; 推荐优秀的 Apps/硬件/技巧/周边等</li>
 <li><a href="http://www.xialeizhou.com/?p=71">高效 MacBook 工作环境配置</a></li>
 <li><a href="https://support.apple.com/zh-cn/HT201236">MacBook 快捷键</a></li>
 </ul>
@@ -495,7 +485,7 @@ release分支里的东西会自动合并到master和develop里。</p>
 
 <ul>
 <li><a href="http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software/">Mac下推荐的软件</a></li>
-<li><a href="http://phenmod.github.io/blog/2016/01/09/use-brew/">用 brew 安装管理软件</a></li>
+<li><a href="http://phenmod.github.io/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a></li>
 </ul>
 
 
@@ -503,7 +493,7 @@ release分支里的东西会自动合并到master和develop里。</p>
 
 <ul>
 <li><a href="http://phenmod.github.io/blog/2015/11/17/use-git/">用 Git 做版本控制</a></li>
-<li><a href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/">用 git-flow 做分支管理</a></li>
+<li><a href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/">用 Git-flow 做分支管理</a></li>
 </ul>
 
 
