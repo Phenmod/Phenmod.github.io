@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://phenmod.github.io/sitemap.xml 
+Sitemap: http://phenmod.com/sitemap.xml 

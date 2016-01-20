@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Git | Phenmod Zhu's Blog]]></title>
-  <link href="http://phenmod.github.io/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-14T11:10:14+08:00</updated>
-  <id>http://phenmod.github.io/</id>
+  <link href="http://phenmod.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://phenmod.com/"/>
+  <updated>2016-01-20T16:40:58+08:00</updated>
+  <id>http://phenmod.com/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[用 Git-flow 做分支管理]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/use-git-flow/"/>
     <updated>2015-11-17T20:17:50+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/use-git-flow</id>
+    <id>http://phenmod.com/blog/2015/11/17/use-git-flow</id>
     <content type="html"><![CDATA[<h2>关于git-flow</h2>
 
 <p>git 鼓励我们多开分支，但是没有一套模型告诉我们如何管理分支，有人总结了一条最佳实践惯例：git-flow，并且提供了一套 <a href="https://github.com/nvie/gitflow">git-flow工具</a>来方便我们实践它。该工具的每个命令都能实现数个 git 命令才能实现的功能，使用起来还是比较方便的。</p>
@@ -133,9 +133,9 @@ git flow support start &lt;release&gt; &lt;base&gt;
   
   <entry>
     <title type="html"><![CDATA[用 Git 做版本控制]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/use-git/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/use-git/"/>
     <updated>2015-11-17T20:17:39+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/use-git</id>
+    <id>http://phenmod.com/blog/2015/11/17/use-git</id>
     <content type="html"><![CDATA[<h2>简介</h2>
 
 <p>Git是个分布式版本管理系统，本地自己的机器上有代码库，远程服务器上也有代码库。每个人要做的事情就是把自己的代码提交到本地，再把别人提交到服务器上的最新代码拉到本地，修改冲突之后，再将最终的正确代码再推送到远程服务器上面去。多从这个概念来理解，很快就能上手了。</p>

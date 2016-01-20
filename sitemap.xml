@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://phenmod.github.io/blog/2016/01/09/use-brew/</loc>
+    <loc>http://phenmod.com/blog/2016/01/09/use-brew/</loc>
     <lastmod>2016-01-09T17:11:11+08:00</lastmod>
   </url>
   <url>
-    <loc>http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/</loc>
+    <loc>http://phenmod.com/blog/2015/11/17/use-clangformat-to-format-objective-c-code/</loc>
     <lastmod>2015-11-17T20:26:17+08:00</lastmod>
   </url>
   <url>
-    <loc>http://phenmod.github.io/blog/2015/11/17/use-git-flow/</loc>
+    <loc>http://phenmod.com/blog/2015/11/17/use-git-flow/</loc>
     <lastmod>2015-11-17T20:17:50+08:00</lastmod>
   </url>
   <url>
-    <loc>http://phenmod.github.io/blog/2015/11/17/use-git/</loc>
+    <loc>http://phenmod.com/blog/2015/11/17/use-git/</loc>
     <lastmod>2015-11-17T20:17:39+08:00</lastmod>
   </url>
   <url>
-    <loc>http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software/</loc>
+    <loc>http://phenmod.com/blog/2015/11/17/recommend-some-mac-os-software/</loc>
     <lastmod>2015-11-17T20:05:03+08:00</lastmod>
   </url>
   <url>
-    <loc>http://phenmod.github.io/blog/2015/11/17/to-ios-fresh-man/</loc>
+    <loc>http://phenmod.com/blog/2015/11/17/to-ios-fresh-man/</loc>
     <lastmod>2015-11-17T19:35:21+08:00</lastmod>
   </url>
   <url>
-    <loc>http://phenmod.github.io/blog/archives/</loc>
+    <loc>http://phenmod.com/blog/archives/</loc>
   </url>
   <url>
-    <loc>http://phenmod.github.io/</loc>
+    <loc>http://phenmod.com/</loc>
   </url>
   <url>
-    <loc>http://phenmod.github.io/blog/categories/ios/</loc>
+    <loc>http://phenmod.com/blog/categories/ios/</loc>
   </url>
   <url>
-    <loc>http://phenmod.github.io/blog/categories/mac/</loc>
+    <loc>http://phenmod.com/blog/categories/mac/</loc>
   </url>
   <url>
-    <loc>http://phenmod.github.io/blog/categories/git/</loc>
+    <loc>http://phenmod.com/blog/categories/git/</loc>
   </url>
 </urlset>

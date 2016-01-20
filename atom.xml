@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Phenmod Zhu's Blog]]></title>
-  <link href="http://phenmod.github.io/atom.xml" rel="self"/>
-  <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-14T11:10:14+08:00</updated>
-  <id>http://phenmod.github.io/</id>
+  <link href="http://phenmod.com/atom.xml" rel="self"/>
+  <link href="http://phenmod.com/"/>
+  <updated>2016-01-20T16:40:58+08:00</updated>
+  <id>http://phenmod.com/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[用 Brew 安装管理软件]]></title>
-    <link href="http://phenmod.github.io/blog/2016/01/09/use-brew/"/>
+    <link href="http://phenmod.com/blog/2016/01/09/use-brew/"/>
     <updated>2016-01-09T17:11:11+08:00</updated>
-    <id>http://phenmod.github.io/blog/2016/01/09/use-brew</id>
+    <id>http://phenmod.com/blog/2016/01/09/use-brew</id>
     <content type="html"><![CDATA[<p>看看它的<a href="http://brew.sh/">官网介绍</a>，</p>
 
 <blockquote><p><code>The missing package manager for OS X</code></p></blockquote>
@@ -133,9 +133,9 @@ brew search &lt;package_name&gt;          # 搜索想要的软件。
   
   <entry>
     <title type="html"><![CDATA[用 ClangFormat 插件格式化 Objective-C 代码]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/use-clangformat-to-format-objective-c-code/"/>
     <updated>2015-11-17T20:26:17+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code</id>
+    <id>http://phenmod.com/blog/2015/11/17/use-clangformat-to-format-objective-c-code</id>
     <content type="html"><![CDATA[<p>多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格有几个、括号是否换行等等，也会不必要地浪费一些精力。于是不少公司会使用一些工具对代码进行自动格式化，比如 Dropbox、Parse。</p>
 
 <p>在 iOS 工程中，我们使用 <a href="http://clang.llvm.org/docs/ClangFormat.html">ClangFormat</a> 工具来格式化代码，Xcode 有方便的插件可用。插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a>。</p>
@@ -228,9 +228,9 @@ killall Finder
   
   <entry>
     <title type="html"><![CDATA[用 Git-flow 做分支管理]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/use-git-flow/"/>
     <updated>2015-11-17T20:17:50+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/use-git-flow</id>
+    <id>http://phenmod.com/blog/2015/11/17/use-git-flow</id>
     <content type="html"><![CDATA[<h2>关于git-flow</h2>
 
 <p>git 鼓励我们多开分支，但是没有一套模型告诉我们如何管理分支，有人总结了一条最佳实践惯例：git-flow，并且提供了一套 <a href="https://github.com/nvie/gitflow">git-flow工具</a>来方便我们实践它。该工具的每个命令都能实现数个 git 命令才能实现的功能，使用起来还是比较方便的。</p>
@@ -358,9 +358,9 @@ release分支里的东西会自动合并到master和develop里。</p>
   
   <entry>
     <title type="html"><![CDATA[用 Git 做版本控制]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/use-git/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/use-git/"/>
     <updated>2015-11-17T20:17:39+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/use-git</id>
+    <id>http://phenmod.com/blog/2015/11/17/use-git</id>
     <content type="html"><![CDATA[<h2>简介</h2>
 
 <p>Git是个分布式版本管理系统，本地自己的机器上有代码库，远程服务器上也有代码库。每个人要做的事情就是把自己的代码提交到本地，再把别人提交到服务器上的最新代码拉到本地，修改冲突之后，再将最终的正确代码再推送到远程服务器上面去。多从这个概念来理解，很快就能上手了。</p>
@@ -433,22 +433,22 @@ release分支里的东西会自动合并到master和develop里。</p>
 
 <p>Git 鼓励大量使用分支开发，但是分支多了容易乱，我们使用一套比较成熟的分支管理方案 git-flow，详情参见</p>
 
-<blockquote><p><a href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/">使用 Git-flow</a></p></blockquote>
+<blockquote><p><a href="http://phenmod.com/blog/2015/11/17/use-git-flow/">使用 Git-flow</a></p></blockquote>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Mac 下推荐的软件]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/recommend-some-mac-os-software/"/>
     <updated>2015-11-17T20:05:03+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software</id>
+    <id>http://phenmod.com/blog/2015/11/17/recommend-some-mac-os-software</id>
     <content type="html"><![CDATA[<p>传说中，Mac 电脑是程序员专用的“飞机中的战斗机”，baidu 一下 “mac 软件推荐”，你会得到很多优秀的工具。下面是我常用的几款，具体安装及使用方式不细说。</p>
 
 <ol>
 <li>终端工具 <a href="http://www.iterm2.com/#/section/home">iterm</a>，官网下载安装。preferences -> Keys -> HotKey，设置一个系统热键。（我的是cmd+shift+m）。</li>
 <li>终极 shell <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> 。安装命令：<code>curl -L http://install.ohmyz.sh | sh</code>，具体使用参考<a href="http://zhuanlan.zhihu.com/mactalk/19556676">池建强的文章</a></li>
 <li>SourceTree ：git的图形化操作工具。</li>
-<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见<a href="http://phenmod.github.io/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a></li>
+<li>brew ：Mac下安装常用软件的利器，几乎所有的软件我都是用它安装管理的。参见<a href="http://phenmod.com/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a></li>
 <li>Alfred ：自定义各种快捷操作，神器。</li>
 <li>Moom ：快速设置窗口的位置及大小，全键盘流的福音。</li>
 <li>Parallel Desktop ：想安装个虚拟机就用它吧，无缝连接系统，牛叉无比。</li>
@@ -478,29 +478,29 @@ release分支里的东西会自动合并到master和develop里。</p>
   
   <entry>
     <title type="html"><![CDATA[iOS新人入门文档目录]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/to-ios-fresh-man/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/to-ios-fresh-man/"/>
     <updated>2015-11-17T19:35:21+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/to-ios-fresh-man</id>
+    <id>http://phenmod.com/blog/2015/11/17/to-ios-fresh-man</id>
     <content type="html"><![CDATA[<h2>软件推荐</h2>
 
 <ul>
-<li><a href="http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software/">Mac下推荐的软件</a></li>
-<li><a href="http://phenmod.github.io/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a></li>
+<li><a href="http://phenmod.com/blog/2015/11/17/recommend-some-mac-os-software/">Mac下推荐的软件</a></li>
+<li><a href="http://phenmod.com/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a></li>
 </ul>
 
 
 <h2>版本控制：Git 及 git-flow</h2>
 
 <ul>
-<li><a href="http://phenmod.github.io/blog/2015/11/17/use-git/">用 Git 做版本控制</a></li>
-<li><a href="http://phenmod.github.io/blog/2015/11/17/use-git-flow/">用 Git-flow 做分支管理</a></li>
+<li><a href="http://phenmod.com/blog/2015/11/17/use-git/">用 Git 做版本控制</a></li>
+<li><a href="http://phenmod.com/blog/2015/11/17/use-git-flow/">用 Git-flow 做分支管理</a></li>
 </ul>
 
 
 <h2>代码风格</h2>
 
 <ul>
-<li><a href="http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">用 ClangFormat 插件格式化 Objective-C 代码</a></li>
+<li><a href="http://phenmod.com/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">用 ClangFormat 插件格式化 Objective-C 代码</a></li>
 </ul>
 
 

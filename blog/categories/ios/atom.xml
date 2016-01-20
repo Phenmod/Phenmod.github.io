@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ios | Phenmod Zhu's Blog]]></title>
-  <link href="http://phenmod.github.io/blog/categories/ios/atom.xml" rel="self"/>
-  <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-14T11:10:14+08:00</updated>
-  <id>http://phenmod.github.io/</id>
+  <link href="http://phenmod.com/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://phenmod.com/"/>
+  <updated>2016-01-20T16:40:58+08:00</updated>
+  <id>http://phenmod.com/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[用 ClangFormat 插件格式化 Objective-C 代码]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/use-clangformat-to-format-objective-c-code/"/>
     <updated>2015-11-17T20:26:17+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/use-clangformat-to-format-objective-c-code</id>
+    <id>http://phenmod.com/blog/2015/11/17/use-clangformat-to-format-objective-c-code</id>
     <content type="html"><![CDATA[<p>多人开发的工程中，每人负责一部分，代码风格各异。如果没有统一的约定，在阅读和维护其他人的代码时，会有各种不适。一些简单的排版工作，比如空格有几个、括号是否换行等等，也会不必要地浪费一些精力。于是不少公司会使用一些工具对代码进行自动格式化，比如 Dropbox、Parse。</p>
 
 <p>在 iOS 工程中，我们使用 <a href="http://clang.llvm.org/docs/ClangFormat.html">ClangFormat</a> 工具来格式化代码，Xcode 有方便的插件可用。插件地址：<a href="https://github.com/travisjeffery/ClangFormat-Xcode">https://github.com/travisjeffery/ClangFormat-Xcode</a>。</p>
@@ -105,9 +105,9 @@ killall Finder
   
   <entry>
     <title type="html"><![CDATA[iOS新人入门文档目录]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/to-ios-fresh-man/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/to-ios-fresh-man/"/>
     <updated>2015-11-17T19:35:21+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/to-ios-fresh-man</id>
+    <id>http://phenmod.com/blog/2015/11/17/to-ios-fresh-man</id>
     <content type="html"><![CDATA[<h2>软件推荐</h2>
 
 <ul>

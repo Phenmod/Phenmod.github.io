@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Mac | Phenmod Zhu's Blog]]></title>
-  <link href="http://phenmod.github.io/blog/categories/mac/atom.xml" rel="self"/>
-  <link href="http://phenmod.github.io/"/>
-  <updated>2016-01-14T11:10:14+08:00</updated>
-  <id>http://phenmod.github.io/</id>
+  <link href="http://phenmod.com/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://phenmod.com/"/>
+  <updated>2016-01-20T16:40:58+08:00</updated>
+  <id>http://phenmod.com/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[用 Brew 安装管理软件]]></title>
-    <link href="http://phenmod.github.io/blog/2016/01/09/use-brew/"/>
+    <link href="http://phenmod.com/blog/2016/01/09/use-brew/"/>
     <updated>2016-01-09T17:11:11+08:00</updated>
-    <id>http://phenmod.github.io/blog/2016/01/09/use-brew</id>
+    <id>http://phenmod.com/blog/2016/01/09/use-brew</id>
     <content type="html"><![CDATA[<p>看看它的<a href="http://brew.sh/">官网介绍</a>，</p>
 
 <blockquote><p><code>The missing package manager for OS X</code></p></blockquote>
@@ -119,9 +119,9 @@ brew search &lt;package_name&gt;          # 搜索想要的软件。
   
   <entry>
     <title type="html"><![CDATA[Mac 下推荐的软件]]></title>
-    <link href="http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software/"/>
+    <link href="http://phenmod.com/blog/2015/11/17/recommend-some-mac-os-software/"/>
     <updated>2015-11-17T20:05:03+08:00</updated>
-    <id>http://phenmod.github.io/blog/2015/11/17/recommend-some-mac-os-software</id>
+    <id>http://phenmod.com/blog/2015/11/17/recommend-some-mac-os-software</id>
     <content type="html"><![CDATA[<p>传说中，Mac 电脑是程序员专用的“飞机中的战斗机”，baidu 一下 “mac 软件推荐”，你会得到很多优秀的工具。下面是我常用的几款，具体安装及使用方式不细说。</p>
 
 <ol>
