@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mac | Phenmod Zhu's Blog]]></title>
   <link href="http://phenmod.com/blog/categories/mac/atom.xml" rel="self"/>
   <link href="http://phenmod.com/"/>
-  <updated>2016-01-20T16:40:58+08:00</updated>
+  <updated>2016-02-02T11:35:21+08:00</updated>
   <id>http://phenmod.com/</id>
   <author>
     <name><![CDATA[朱兴灿]]></name>
@@ -14,42 +14,55 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Brew 的工作细节]]></title>
+    <link href="http://phenmod.com/blog/2016/01/20/brew-internal/"/>
+    <updated>2016-01-20T21:17:23+08:00</updated>
+    <id>http://phenmod.com/blog/2016/01/20/brew-internal</id>
+    <content type="html"><![CDATA[<p>本文将大略讲一下 brew 的工作细节。对普通的使用者来说，只要看明白使用文档就好，了不了解这些内容并不重要。有些内容（用斜体标出的部分）我也不太确定是否正确，还待后续修改。</p>
+
+<h3>brew 本身的文件位置</h3>
+
+<p>通过 <code>which brew</code> 命令，可以发现 brew 命令的可执行文件的路径为 /usr/local/bin/brew，它是个 shell 脚本。用文本编辑软件打开，可以发现它实际上是读取系统使用的 ruby 的路径，来执行 /usr/local/Library/brew.rb。</p>
+
+<p>brew 软件本身的各个文件 <em>全部</em> 在 /usr/local/Library 目录下，可以在它的三个子目录 bin/、Library/、share/ 下找到安装后的 brew 文件。比如，/usr/local/bin/brew 就是 brew 的可执行文件。具体每个brew的子命令都是一个个的 ruby 脚本，比如，<code>brew search</code> 就是 /usr/local/Library/Homebrew/cmd/search.rb。</p>
+
+<p>每个使用brew安装的软件都有一个对应的ruby脚本，我们称为 Formula，<code>brew install &lt;package_name&gt;</code>安装命令其实就是读取这个脚本里的配置，下载源码，然后运行配置里写好的安装命令。这些脚本放在 /usr/local/Library/Formula 下，使用 <code>brew update</code> 从github拉取最新版本的 brew 时，会在命令行运行结束后看到提示，哪些软件有版本更新，新增了哪些软件。</p>
+
+<h3>brew 安装软件的细节</h3>
+
+<p>软件下载下来之后，缓存在 /Library/Caches/Homebrew 目录中，你会在这个目录下发现一堆你下载过的软件包。如果你已安装某软件，然后用 <code>brew reinstall &lt;package_name&gt;</code> 重新安装该版本，就不需要重新下载了，它会直接使用已下载的软件进行安装。</p>
+
+<p>brew 大多是直接下载源码然后编译安装，安装命令如 <code>./configure &amp;&amp; make install</code>。并且，在安装本软件之前，会先安装脚本里指明的本项目的依赖库。</p>
+
+<p>软件安装的目录是 /usr/local/Cellar/<package_name>/<version>/，比如 /usr/local/Cellar/autojump/22.2.4/。源码编译完成后，生成的文件都会放在这里，如果是直接下载的可执行文件，也会直接放在这里。每个版本的软件都会放在对应版本名称的文件夹下。一般的软件可能会包含可执行文件、供其它库使用的头文件、运行库、文档等文件或目录，为了方便升级管理，，brew 会把这些文件或目录分别软链接到 /usr/local/bin/、/usr/local/include/、/usr/local/lib/、/usr/local/share/ 等目录下。</p>
+
+<p>如果你用 <code>brew upgrade &lt;package_name&gt;</code> 更新过几次该软件，你所有安装过的版本都会在 /usr/local/Cellar/<package_name>/ 目录下找到。每次升级时，brew都是先把可执行文件等都编译到当前版本目录下，撤销之前版本的软链接，然后再将新版本软链接到 /usr/local 的各子文件夹下。这样，我们就会使用到最新版本了。</p>
+
+<p>你也可以使用 <code>brew swith</code> 来切换使用软件的某具体版本。比如，<code>brew swith autojump 22.1.4</code> 。</p>
+
+<p>时间久了，你的安装文件会越来越多，这时候可以用 <code>brew cleanup</code> 清理掉不想用的旧版本，这样会会节省出来大量硬盘空间。如果你不想直接删掉，可以使用 <code>brew cleanup -n</code> 命令，它相当于预演一下，告诉你真正运行 <code>brew cleanup</code> 时会干些什么，而不会真正执行。检查完毕确定可以删除后，你再 <code>brew cleanup</code> 就安全多了。brew 的很多命令都支持 <code>-n</code> 参数，也就是 <code>--dry-run</code> 参数，这些就需要你自己去翻文档了。</p>
+
+<p>brew 还提供了很多其他命令，有需要的话自己 <code>man brew</code> 查看吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[用 Brew 安装管理软件]]></title>
     <link href="http://phenmod.com/blog/2016/01/09/use-brew/"/>
     <updated>2016-01-09T17:11:11+08:00</updated>
     <id>http://phenmod.com/blog/2016/01/09/use-brew</id>
-    <content type="html"><![CDATA[<p>看看它的<a href="http://brew.sh/">官网介绍</a>，</p>
+    <content type="html"><![CDATA[<p>看看 brew 官网的<a href="http://brew.sh/">介绍</a>，</p>
 
 <blockquote><p><code>The missing package manager for OS X</code></p></blockquote>
 
-<p>就知道它是用来干什么的了。Mac OS 没有提供软件包的管理器，不能像在 linux 上能使用 apt-get 自动从互联网的软件仓库中搜索、安装、升级、卸载软件。大神 <a href="https://github.com/mxcl">Max Howell</a> 就写了个 brew 来干这件事。</p>
+<p>Mac OS 没有提供软件包管理器，不能像在 linux 上能使用 apt-get 那样，从软件仓库中搜索、安装、升级软件。就有大神 <a href="https://github.com/mxcl">Max Howell</a> 写了个 brew。</p>
 
-<p>brew 项目在 github 上的地址是 <a href="https://github.com/Homebrew/homebrew">https://github.com/Homebrew/homebrew</a>，brew 本身及每个软件的版本更新维护都是在这里通过提 pr 的方式进行审核。</p>
+<p>brew 项目在 github 上的地址是 <a href="https://github.com/Homebrew/homebrew">https://github.com/Homebrew/homebrew</a>，brew 本身及每个软件的版本更新维护都是在这里通过提 pr 的方式进行。</p>
 
 <h2>安装</h2>
 
 <pre><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 </code></pre>
-
-<h2>brew 的工作细节</h2>
-
-<p>brew 安装在 <code>/usr/local</code> 目录下，可以在这个 <code>/usr/local/</code> 的 <code>bin/</code>、<code>Library/</code>、<code>share/</code> 三个目录下找到安装后的 brew 文件。比如，<code>/usr/local/bin/brew</code> 就是 brew 的可执行文件。具体每个brew的子命令都是一个个的 ruby 脚本，比如，<code>brew search</code> 就是 <code>/usr/local/Library/Homebrew/cmd/search.rb</code>。</p>
-
-<p>每个使用brew安装的软件都有一个对应的ruby脚本，我们称为 <code>Formula</code>，<code>brew install &lt;package_name&gt;</code>安装命令其实就是读取这个脚本里的配置，下载源码，然后运行配置里写好的安装命令。这些脚本放在 <code>/usr/local/Library/Formula</code> 下，使用 <code>brew update</code> 从github拉取最新版本的 brew 时，会在命令行运行结束后看到提示，哪些软件有版本更新和新增了哪些软件。</p>
-
-<p>软件下载下来之后，缓存在 <code>/Library/Caches/Homebrew</code> 目录中，你会在这个目录下发现一堆你下载过的软件包。如果你已安装某软件，然后用 <code>brew reinstall &lt;package_name&gt;</code> 重新安装该版本，就不需要重新下载了，它会直接使用已下载的软件进行安装。</p>
-
-<p>brew 大多是直接下载源码然后编译安装，安装命令如 <code>./configure &amp;&amp; make install</code>。并且，在安装本软件之前，会先安装脚本里指明的本项目的依赖库。</p>
-
-<p>软件安装的目录是<code>/usr/local/Cellar/&lt;package_name&gt;/&lt;version&gt;/</code>，比如 <code>/usr/local/Cellar/autojump/22.2.4/</code>。源码编译完成后，生成的文件都会放在这里。一般的软件可能会包含可执行文件、供其它库使用的头文件、运行库、文档等文件或目录，然后 brew 会把这些文件或目录分别软链接到 <code>/usr/local/bin/</code>、<code>/usr/local/include/</code>、<code>/usr/local/lib/</code>、<code>/usr/local/share/</code> 等目录下。</p>
-
-<p>如果你用 <code>brew upgrade &lt;package_name&gt;</code> 更新过几次该软件，你所有安装过的版本都会在 <code>/usr/local/Cellar/&lt;package_name&gt;/</code> 目录下找到。每次升级时，brew都是先把可执行文件等都编译到当前版本目录下，然后再软链接到<code>/usr/local</code>的各子文件夹下。这样，我们就会使用到最新版本了，因为 <code>/usr/local/bin</code> 目录是已经添加到环境变量里的。</p>
-
-<p>当然，所以你也可以使用 <code>brew swith</code> 来切换使用软件的某具体版本。比如，<code>brew swith autojump 22.1.4</code> 。</p>
-
-<p>时间久了，你的安装文件会越来越多，这时候清理不想用的旧版本会节省出来大量硬盘空间。<code>brew cleanup</code> 可以轻松达到此目的。如果你不想直接删掉，可以使用 <code>brew cleanup -n</code> 命令，它相当于预演一下，告诉你真正运行 <code>brew cleanup</code> 时会干些什么，而不会真正执行。检查完毕确定可以删除后，你再 <code>brew cleanup</code> 就安全多了。brew 的很多命令都支持 <code>-n</code> 参数，也就是 <code>--dry-run</code> 参数，这些就需要你自己去翻文档了。</p>
-
-<p>brew 还提供了很多其他命令，有需要的话自己 <code>man brew</code> 查看吧。</p>
 
 <h2>常用命令</h2>
 
@@ -68,7 +81,7 @@ brew deps                       # 显示包依赖
 
 <h2>brew 的子软件包</h2>
 
-<p>我们常用的其实是 brew 的主包，里有着常用的一些软件，比如 <code>erlang</code>、<code>cloc</code>、<code>cmake</code>、<code>tree</code>等。但还有些软件比如科学计算相关的，并不是很常用，数量又很多，就会根据类型单独分到一个子软件包里。在安装 brew 的时候，并不会将这些软件的 <code>Formula</code> 下载到本地，要想使用的话，应该先安装该子软件包。</p>
+<p>我们常用的其实是 brew 的主包，里面有比较常用的软件，比如 <code>erlang</code>、<code>cloc</code>、<code>cmake</code>、<code>tree</code>等。但还有些比如科学计算相关的软件，并不是很常用，数量又很多，就会根据类型单独分到一个子软件包里。在安装 brew 的时候，并不会将这些软件的 <code>Formula</code> 下载到本地，要想使用的话，应该先安装该子软件包。</p>
 
 <p>比如 opencv 在 science 子软件包里，安装的时候需要先使用命令 <code>brew tap homebrew/science</code> 将 <code>science</code> 子软件包下载下来，然后再 <code>brew install opencv</code>。或者你也可以直接指明软件所在的子包，通过 <code>brew install homebrew/science/opencv</code> 命令来安装，这个命令会先 <code>tap</code> 该子软件包，再安装软件。<code>homebrw/science</code> 项目的 github 地址是：<a href="https://github.com/Homebrew/homebrew-science">https://github.com/Homebrew/homebrew-science</a>，tap下来的 science 的 <code>Formula</code> 放在 <code>/usr/local/Library/Taps/homebrew/homebrew-science</code> 目录下。</p>
 

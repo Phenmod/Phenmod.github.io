@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>iOS新人入门文档目录 - Phenmod Zhu's Blog</title>
+  <title>Brew 的工作细节 - Phenmod Zhu's Blog</title>
   <meta name="author" content="朱兴灿">
 
   
-  <meta name="description" content="软件推荐 Mac下推荐的软件
-用 Brew 安装管理软件 版本控制：Git 及 git-flow 用 Git 做版本控制
-用 Git-flow 做分支管理 代码风格 用 ClangFormat 插件格式化 Objective-C 代码 iOS技术 开发工具 CocoaPods 的使用。 &hellip;">
+  <meta name="description" content="本文将大略讲一下 brew 的工作细节。对普通的使用者来说，只要看明白使用文档就好，了不了解这些内容并不重要。有些内容（用斜体标出的部分）我也不太确定是否正确，还待后续修改。 brew 本身的文件位置 通过 which brew 命令，可以发现 brew 命令的可执行文件的路径为 /usr/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://phenmod.com/blog/2015/11/17/to-ios-fresh-man/">
+  <link rel="canonical" href="http://phenmod.com/blog/2016/01/20/brew-internal/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Phenmod Zhu's Blog" type="application/atom+xml">
@@ -71,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">iOS新人入门文档目录</h1>
+      <h1 class="entry-title">Brew 的工作细节</h1>
     
     
       <p class="meta">
@@ -80,59 +78,38 @@
 
 
 
-<time class='entry-date' datetime='2015-11-17T19:35:21+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:35 pm</span></time>
+<time class='entry-date' datetime='2016-01-20T21:17:23+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:17 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2>软件推荐</h2>
+<div class="entry-content"><p>本文将大略讲一下 brew 的工作细节。对普通的使用者来说，只要看明白使用文档就好，了不了解这些内容并不重要。有些内容（用斜体标出的部分）我也不太确定是否正确，还待后续修改。</p>
 
-<ul>
-<li><a href="/blog/2015/11/17/recommend-some-mac-os-software/">Mac下推荐的软件</a></li>
-<li><a href="/blog/2016/01/09/use-brew/">用 Brew 安装管理软件</a></li>
-</ul>
+<h3>brew 本身的文件位置</h3>
 
+<p>通过 <code>which brew</code> 命令，可以发现 brew 命令的可执行文件的路径为 /usr/local/bin/brew，它是个 shell 脚本。用文本编辑软件打开，可以发现它实际上是读取系统使用的 ruby 的路径，来执行 /usr/local/Library/brew.rb。</p>
 
-<h2>版本控制：Git 及 git-flow</h2>
+<p>brew 软件本身的各个文件 <em>全部</em> 在 /usr/local/Library 目录下，可以在它的三个子目录 bin/、Library/、share/ 下找到安装后的 brew 文件。比如，/usr/local/bin/brew 就是 brew 的可执行文件。具体每个brew的子命令都是一个个的 ruby 脚本，比如，<code>brew search</code> 就是 /usr/local/Library/Homebrew/cmd/search.rb。</p>
 
-<ul>
-<li><a href="/blog/2015/11/17/use-git/">用 Git 做版本控制</a></li>
-<li><a href="/blog/2015/11/17/use-git-flow/">用 Git-flow 做分支管理</a></li>
-</ul>
+<p>每个使用brew安装的软件都有一个对应的ruby脚本，我们称为 Formula，<code>brew install &lt;package_name&gt;</code>安装命令其实就是读取这个脚本里的配置，下载源码，然后运行配置里写好的安装命令。这些脚本放在 /usr/local/Library/Formula 下，使用 <code>brew update</code> 从github拉取最新版本的 brew 时，会在命令行运行结束后看到提示，哪些软件有版本更新，新增了哪些软件。</p>
 
+<h3>brew 安装软件的细节</h3>
 
-<h2>代码风格</h2>
+<p>软件下载下来之后，缓存在 /Library/Caches/Homebrew 目录中，你会在这个目录下发现一堆你下载过的软件包。如果你已安装某软件，然后用 <code>brew reinstall &lt;package_name&gt;</code> 重新安装该版本，就不需要重新下载了，它会直接使用已下载的软件进行安装。</p>
 
-<ul>
-<li><a href="/blog/2015/11/17/use-clangformat-to-format-objective-c-code/">用 ClangFormat 插件格式化 Objective-C 代码</a></li>
-</ul>
+<p>brew 大多是直接下载源码然后编译安装，安装命令如 <code>./configure &amp;&amp; make install</code>。并且，在安装本软件之前，会先安装脚本里指明的本项目的依赖库。</p>
 
+<p>软件安装的目录是 /usr/local/Cellar/<package_name>/<version>/，比如 /usr/local/Cellar/autojump/22.2.4/。源码编译完成后，生成的文件都会放在这里，如果是直接下载的可执行文件，也会直接放在这里。每个版本的软件都会放在对应版本名称的文件夹下。一般的软件可能会包含可执行文件、供其它库使用的头文件、运行库、文档等文件或目录，为了方便升级管理，，brew 会把这些文件或目录分别软链接到 /usr/local/bin/、/usr/local/include/、/usr/local/lib/、/usr/local/share/ 等目录下。</p>
 
-<h2>iOS技术</h2>
+<p>如果你用 <code>brew upgrade &lt;package_name&gt;</code> 更新过几次该软件，你所有安装过的版本都会在 /usr/local/Cellar/<package_name>/ 目录下找到。每次升级时，brew都是先把可执行文件等都编译到当前版本目录下，撤销之前版本的软链接，然后再将新版本软链接到 /usr/local 的各子文件夹下。这样，我们就会使用到最新版本了。</p>
 
-<h3>开发工具</h3>
+<p>你也可以使用 <code>brew swith</code> 来切换使用软件的某具体版本。比如，<code>brew swith autojump 22.1.4</code> 。</p>
 
-<ul>
-<li>CocoaPods 的使用。
-参见唐巧的<a href="http://blog.devtang.com/blog/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/">用CocoaPods做iOS程序的依赖管理</a></li>
-<li>Xcode 及 Instruments 的使用。编译、调试、调优等手段。</li>
-</ul>
+<p>时间久了，你的安装文件会越来越多，这时候可以用 <code>brew cleanup</code> 清理掉不想用的旧版本，这样会会节省出来大量硬盘空间。如果你不想直接删掉，可以使用 <code>brew cleanup -n</code> 命令，它相当于预演一下，告诉你真正运行 <code>brew cleanup</code> 时会干些什么，而不会真正执行。检查完毕确定可以删除后，你再 <code>brew cleanup</code> 就安全多了。brew 的很多命令都支持 <code>-n</code> 参数，也就是 <code>--dry-run</code> 参数，这些就需要你自己去翻文档了。</p>
 
-
-<h3>开发技术</h3>
-
-<ul>
-<li>研究ARC的相关技术及使用。熟悉 weak，strong 等关键字的使用。</li>
-<li>研究 block 的使用，理解内存的循环引用。</li>
-<li>熟悉 StoryBoard 及 Xib 的使用。</li>
-<li>全面认识 UIView 及 UIViewController 的各属性功能类的函数功能。</li>
-<li>透彻理解 MVC。了解常用设计模式。</li>
-<li>了解 UIView 动画及 Core Animation 的主要知识点。</li>
-<li>研究线程安全，了解系统类中哪些是线程安全的，了解如何写一个线程安全类。</li>
-</ul>
-
+<p>brew 还提供了很多其他命令，有需要的话自己 <code>man brew</code> 查看吧。</p>
 </div>
 
 
@@ -148,12 +125,12 @@
 
 
 
-<time class='entry-date' datetime='2015-11-17T19:35:21+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:35 pm</span></time>
+<time class='entry-date' datetime='2016-01-20T21:17:23+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:17 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ios/'>ios</a>
+    <a class='category' href='/blog/categories/mac/'>mac</a>
   
 </span>
 
@@ -194,8 +171,8 @@ var jiathis_config = {data_track_clickback:'true'};
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2016/01/09/use-brew/" title="Previous Post: 用 Brew 安装管理软件">&laquo; 用 Brew 安装管理软件</a>
       
-        <a class="basic-alignment right" href="/blog/2015/11/17/recommend-some-mac-os-software/" title="Next Post: Mac 下推荐的软件">Mac 下推荐的软件 &raquo;</a>
       
     </p>
   </footer>

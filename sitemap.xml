@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://phenmod.com/blog/2016/01/20/brew-internal/</loc>
+    <lastmod>2016-01-20T21:17:23+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://phenmod.com/blog/2016/01/09/use-brew/</loc>
     <lastmod>2016-01-09T17:11:11+08:00</lastmod>
   </url>
