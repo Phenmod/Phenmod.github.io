@@ -101,9 +101,9 @@
 
 <p>brew 大多是直接下载源码然后编译安装，安装命令如 <code>./configure &amp;&amp; make install</code>。并且，在安装本软件之前，会先安装脚本里指明的本项目的依赖库。</p>
 
-<p>软件安装的目录是 /usr/local/Cellar/<package_name>/<version>/，比如 /usr/local/Cellar/autojump/22.2.4/。源码编译完成后，生成的文件都会放在这里，如果是直接下载的可执行文件，也会直接放在这里。每个版本的软件都会放在对应版本名称的文件夹下。一般的软件可能会包含可执行文件、供其它库使用的头文件、运行库、文档等文件或目录，为了方便升级管理，，brew 会把这些文件或目录分别软链接到 /usr/local/bin/、/usr/local/include/、/usr/local/lib/、/usr/local/share/ 等目录下。</p>
+<p>软件安装的目录是 /usr/local/Cellar/&lt;package_name>/&lt;version>/，比如 /usr/local/Cellar/autojump/22.2.4/。源码编译完成后，生成的文件都会放在这里，如果是直接下载的可执行文件，也会直接放在这里。每个版本的软件都会放在对应版本名称的文件夹下。一般的软件可能会包含可执行文件、供其它库使用的头文件、运行库、文档等文件或目录，为了方便升级管理，，brew 会把这些文件或目录分别软链接到 /usr/local/bin/、/usr/local/include/、/usr/local/lib/、/usr/local/share/ 等目录下。</p>
 
-<p>如果你用 <code>brew upgrade &lt;package_name&gt;</code> 更新过几次该软件，你所有安装过的版本都会在 /usr/local/Cellar/<package_name>/ 目录下找到。每次升级时，brew都是先把可执行文件等都编译到当前版本目录下，撤销之前版本的软链接，然后再将新版本软链接到 /usr/local 的各子文件夹下。这样，我们就会使用到最新版本了。</p>
+<p>如果你用 <code>brew upgrade &lt;package_name&gt;</code> 更新过几次该软件，你所有安装过的版本都会在 /usr/local/Cellar/&lt;package_name>/ 目录下找到。每次升级时，brew都是先把可执行文件等都编译到当前版本目录下，撤销之前版本的软链接，然后再将新版本软链接到 /usr/local 的各子文件夹下。这样，我们就会使用到最新版本了。</p>
 
 <p>你也可以使用 <code>brew swith</code> 来切换使用软件的某具体版本。比如，<code>brew swith autojump 22.1.4</code> 。</p>
 
